@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  Font  -->
+    <FontFamily x:Key="Regular">/Application;component/Resources/Fonts/inter-Regular.ttf</FontFamily>
+    <FontFamily x:Key="Medium">/Application;component/Resources/Fonts/inter-Medium.ttf</FontFamily>
+    <FontFamily x:Key="Bold">/Application;component/Resources/Fonts/inter-Bold.ttf</FontFamily>
+    <FontFamily x:Key="Black">/Application;component/Resources/Fonts/inter-Black.ttf</FontFamily>
+
+</ResourceDictionary>

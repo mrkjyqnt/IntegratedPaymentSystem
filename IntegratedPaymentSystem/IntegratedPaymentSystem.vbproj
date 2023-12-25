@@ -1,0 +1,128 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>IntegratedPaymentSystem</RootNamespace>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Fonts\Inter-Black.ttf" />
+    <None Remove="Resources\Fonts\Inter-Bold.ttf" />
+    <None Remove="Resources\Fonts\Inter-ExtraBold.ttf" />
+    <None Remove="Resources\Fonts\Inter-ExtraLight.ttf" />
+    <None Remove="Resources\Fonts\Inter-Light.ttf" />
+    <None Remove="Resources\Fonts\Inter-Medium.ttf" />
+    <None Remove="Resources\Fonts\Inter-Regular.ttf" />
+    <None Remove="Resources\Fonts\Inter-SemiBold.ttf" />
+    <None Remove="Resources\Fonts\Inter-Thin.ttf" />
+    <None Remove="Resources\Fonts\Inter-VariableFont_slnt,wght.ttf" />
+    <None Remove="Resources\Images\defaultprofile.png" />
+    <None Remove="Resources\Images\icon_account.png" />
+    <None Remove="Resources\Images\icon_account_filled.png" />
+    <None Remove="Resources\Images\icon_arrow.png" />
+    <None Remove="Resources\Images\icon_card.png" />
+    <None Remove="Resources\Images\icon_card_filled.png" />
+    <None Remove="Resources\Images\icon_chat.png" />
+    <None Remove="Resources\Images\icon_chat_filled.png" />
+    <None Remove="Resources\Images\icon_clock.png" />
+    <None Remove="Resources\Images\icon_dashboard_filled.png" />
+    <None Remove="Resources\Images\icon_info.png" />
+    <None Remove="Resources\Images\icon_open.png" />
+    <None Remove="Resources\Images\icon_plus.png" />
+    <None Remove="Resources\Images\icon_plus_circle.png" />
+    <None Remove="Resources\Images\icon_search.png" />
+    <None Remove="Resources\Images\icon_transaction.png" />
+    <None Remove="Resources\Images\icon_transaction_filled.png" />
+    <None Remove="Resources\Images\icon_wifi.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Import Include="System.Windows" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Data" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Media.Imaging" />
+    <Import Include="System.Windows.Navigation" />
+    <Import Include="System.Windows.Shapes" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="itext7" Version="8.0.2" />
+    <PackageReference Include="itext7.bouncy-castle-adapter" Version="8.0.2" />
+    <PackageReference Include="MailKit" Version="4.3.0" />
+    <PackageReference Include="MimeKit" Version="4.3.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\Inter-Black.ttf" />
+    <Resource Include="Resources\Fonts\Inter-Bold.ttf" />
+    <Resource Include="Resources\Fonts\Inter-ExtraBold.ttf" />
+    <Resource Include="Resources\Fonts\Inter-ExtraLight.ttf" />
+    <Resource Include="Resources\Fonts\Inter-Light.ttf" />
+    <Resource Include="Resources\Fonts\Inter-Medium.ttf" />
+    <Resource Include="Resources\Fonts\Inter-Regular.ttf" />
+    <Resource Include="Resources\Fonts\Inter-SemiBold.ttf" />
+    <Resource Include="Resources\Fonts\Inter-Thin.ttf" />
+    <Resource Include="Resources\Fonts\Inter-VariableFont_slnt,wght.ttf" />
+    <Resource Include="Resources\Images\defaultprofile.png" />
+    <Resource Include="Resources\Images\icon_account.png" />
+    <Resource Include="Resources\Images\icon_account_filled.png" />
+    <Resource Include="Resources\Images\icon_arrow.png" />
+    <Resource Include="Resources\Images\icon_card.png" />
+    <Resource Include="Resources\Images\icon_card_filled.png" />
+    <Resource Include="Resources\Images\icon_chat.png" />
+    <Resource Include="Resources\Images\icon_chat_filled.png" />
+    <Resource Include="Resources\Images\icon_clock.png" />
+    <Resource Include="Resources\Images\icon_dashboard_filled.png" />
+    <Resource Include="Resources\Images\icon_info.png" />
+    <Resource Include="Resources\Images\icon_open.png" />
+    <Resource Include="Resources\Images\icon_plus.png" />
+    <Resource Include="Resources\Images\icon_plus_circle.png" />
+    <Resource Include="Resources\Images\icon_search.png" />
+    <Resource Include="Resources\Images\icon_transaction.png" />
+    <Resource Include="Resources\Images\icon_transaction_filled.png" />
+    <Resource Include="Resources\Images\icon_wifi.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="My Project\" />
+    <Folder Include="Pages\Admin\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Pages\Collector\Dialog\CollectorPrint.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Collector\Dialog\CollectorReference.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Collector\Dialog\CollectorInformation.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Customer\Dialog\CustomerInformation.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Customer\Dialog\CustomerReference.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Customer\Dialog\CustomerBillingInfo.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Dialog\CustomConfirmationBox.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Dialog\CustomMessageBox.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Styles\Models\AnalyticBlock.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>

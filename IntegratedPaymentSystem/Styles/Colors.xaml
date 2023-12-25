@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <!--  Colors  -->
+    <Color x:Key="Primary">#202020</Color>
+    <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}" />
+
+    <Color x:Key="Secondary">#2D2D2D</Color>
+    <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}" />
+
+    <Color x:Key="SecondaryHover">#323232</Color>
+    <SolidColorBrush x:Key="SecondaryHoverBrush" Color="{StaticResource SecondaryHover}" />
+
+    <Color x:Key="Blue">#2576FF</Color>
+    <SolidColorBrush x:Key="BlueBrush" Color="{StaticResource Blue}" />
+
+    <Color x:Key="White">#FFFFFF</Color>
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}" />
+
+    <Color x:Key="Gray">#CFCFCF</Color>
+    <SolidColorBrush x:Key="GrayBrush" Color="{StaticResource Gray}" />
+
+    <Color x:Key="Default">#373737</Color>
+    <SolidColorBrush x:Key="DefaultBrush" Color="{StaticResource Default}" />
+
+    <Color x:Key="DefaultHover">#3C3C3C</Color>
+    <SolidColorBrush x:Key="DefaultHoverBrush" Color="{StaticResource DefaultHover}" />
+
+    <Color x:Key="Disabled">#AAAAAA</Color>
+    <SolidColorBrush x:Key="DisabledBrush" Color="{StaticResource Disabled}" />
+
+    <Color x:Key="Positive">#50D890</Color>
+    <SolidColorBrush x:Key="PositiveBrush" Color="{StaticResource Positive}" />
+
+    <Color x:Key="Negative">#FF5959</Color>
+    <SolidColorBrush x:Key="NegativeBrush" Color="{StaticResource Negative}" />
+
+    <Color x:Key="BlueHover">#5F9AFF</Color>
+    <SolidColorBrush x:Key="BlueHoverBrush" Color="{StaticResource BlueHover}" />
+
+    <Color x:Key="Neutral">#FFB359</Color>
+    <SolidColorBrush x:Key="NeutralBrush" Color="{StaticResource Neutral}" />
+
+
+</ResourceDictionary>

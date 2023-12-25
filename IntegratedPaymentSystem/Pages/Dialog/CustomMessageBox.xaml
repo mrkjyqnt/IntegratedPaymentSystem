@@ -1,0 +1,65 @@
+﻿<Window
+    x:Class="CustomMessageBox"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Error"
+    Width="300"
+    HorizontalAlignment="Center"
+    VerticalAlignment="Center"
+    AllowsTransparency="True"
+    Background="Transparent"
+    BorderThickness="0"
+    ResizeMode="NoResize"
+    SizeToContent="Height"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Border
+        Padding="30,20"
+        VerticalAlignment="Center"
+        Background="{StaticResource SecondaryBrush}"
+        KeyDown="Pressed_Enter"
+        Style="{StaticResource CustomBorderStyle}">
+        <Grid VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    x:Name="TextTitle"
+                    Grid.Row="0"
+                    HorizontalAlignment="Center"
+                    Foreground="{StaticResource WhiteBrush}"
+                    Style="{StaticResource TitleText}" />
+                <TextBlock
+                    x:Name="TextError"
+                    Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    Foreground="{StaticResource WhiteBrush}"
+                    Style="{StaticResource RegularText}"
+                    TextWrapping="Wrap" />
+            </Grid>
+
+            <Button
+                Grid.Row="2"
+                Background="{StaticResource BlueBrush}"
+                Click="Button_Click"
+                Content="Ok"
+                Foreground="{StaticResource WhiteBrush}"
+                Style="{StaticResource NeutralButton}" />
+
+
+        </Grid>
+    </Border>
+</Window>

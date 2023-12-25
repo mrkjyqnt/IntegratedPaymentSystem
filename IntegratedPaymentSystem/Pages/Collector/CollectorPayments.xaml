@@ -1,0 +1,232 @@
+﻿<UserControl
+    x:Class="CollectorPayments"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:IntegratedPaymentSystem"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignWidth="800"
+    DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:CollectorView}}}"
+    mc:Ignorable="d">
+    <Grid x:Name="mainView">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  HEADER  -->
+        <Grid Grid.Row="0">
+
+            <!--  Title  -->
+            <Grid Grid.Row="0" VerticalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="{StaticResource WhiteBrush}"
+                    Style="{StaticResource TitleText}"
+                    Text="Transactions" />
+            </Grid>
+
+        </Grid>
+
+        <!--  BODY  -->
+        <Grid Grid.Row="2">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="7.50" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="7.50" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  Print Transaction  -->
+            <Grid Grid.Row="0" VerticalAlignment="Center">
+                <Button
+                    x:Name="ButtonCreatePayment"
+                    Grid.Row="0"
+                    Width="Auto"
+                    Height="Auto"
+                    Background="{StaticResource SecondaryBrush}"
+                    Click="Button_Click"
+                    Style="{StaticResource ActiveFrameButton}">
+                    <Grid VerticalAlignment="Center">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid
+                            Grid.Column="0"
+                            Height="45"
+                            HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Grid.Column="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+                                <Image
+                                    Width="25"
+                                    Height="25"
+                                    HorizontalAlignment="Left"
+                                    Source="{StaticResource PlusCircleLined}"
+                                    Stretch="Fill" />
+                            </Border>
+                            <Border
+                                Grid.Column="2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+                                <TextBlock
+                                    Grid.Row="2"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource MediumText}"
+                                    Text="Create New Payment" />
+                            </Border>
+                        </Grid>
+
+                        <Border
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center">
+                            <Image
+                                Width="15"
+                                Height="15"
+                                HorizontalAlignment="Right"
+                                Source="{StaticResource OpenLined}"
+                                Stretch="Fill" />
+                        </Border>
+                    </Grid>
+                </Button>
+            </Grid>
+
+            <!--  Transaction History  -->
+            <Grid Grid.Row="2" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2.50" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Button
+                    Grid.Row="0"
+                    Width="Auto"
+                    Height="Auto"
+                    Background="{StaticResource SecondaryBrush}"
+                    Style="{StaticResource FrameButton}">
+                    <Grid VerticalAlignment="Center">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid
+                            Grid.Column="0"
+                            Height="45"
+                            HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Grid.Column="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+                                <Image
+                                    Width="25"
+                                    Height="25"
+                                    HorizontalAlignment="Left"
+                                    Source="{StaticResource TransactionLined}"
+                                    Stretch="Fill" />
+                            </Border>
+                            <Border
+                                Grid.Column="2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+                                <TextBlock
+                                    Grid.Row="2"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource MediumText}"
+                                    Text="Transaction History" />
+                            </Border>
+                        </Grid>
+
+                        <Border
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center">
+                            <Image
+                                Width="15"
+                                Height="15"
+                                HorizontalAlignment="Right"
+                                Source="{StaticResource ArrowLined}"
+                                Stretch="Fill" />
+                        </Border>
+                    </Grid>
+                </Button>
+
+                <Border Grid.Row="2" Style="{StaticResource CustomBorderStyle}">
+
+                    <DataGrid
+                        x:Name="TransactionData"
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        CanUserResizeRows="False"
+                        CanUserSortColumns="False"
+                        ItemsSource="{Binding TransactionsData, UpdateSourceTrigger=PropertyChanged}"
+                        Style="{StaticResource DefaultTable}">
+
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding ID}"
+                                Header="Reference No." />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Status}"
+                                Header="Status">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style BasedOn="{StaticResource TableCell}" TargetType="DataGridCell">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Status}" Value="Completed">
+                                                <Setter Property="Foreground" Value="{StaticResource PositiveBrush}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="Pending">
+                                                <Setter Property="Foreground" Value="{StaticResource NeutralBrush}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Status}" Value="Declined">
+                                                <Setter Property="Foreground" Value="{StaticResource NegativeBrush}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Type}"
+                                Header="Type" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding TransactionDate}"
+                                Header="Date" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Amount}"
+                                Header="Amount" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
