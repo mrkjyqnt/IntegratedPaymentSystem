@@ -171,7 +171,7 @@
                             Background="{StaticResource DefaultBrush}"
                             Click="Button_Click"
                             Foreground="{StaticResource WhiteBrush}"
-                            Style="{StaticResource NeutralButton}">
+                            Style="{StaticResource DefaultButton}">
                             <TextBlock
                                 Foreground="{StaticResource WhiteBrush}"
                                 Style="{StaticResource RegularText}"
@@ -280,7 +280,7 @@
                     Background="{StaticResource DefaultBrush}"
                     Click="Button_Click"
                     Foreground="{StaticResource WhiteBrush}"
-                    Style="{StaticResource NeutralButton}">
+                    Style="{StaticResource DefaultButton}">
                     <TextBlock
                         Foreground="{StaticResource WhiteBrush}"
                         Style="{StaticResource RegularText}"

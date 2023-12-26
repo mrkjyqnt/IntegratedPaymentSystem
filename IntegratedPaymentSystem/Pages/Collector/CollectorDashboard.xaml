@@ -56,10 +56,10 @@
                     Grid.Row="0"
                     Width="Auto"
                     Height="Auto"
-                    Padding="20,10"
+                    Padding="20,20"
                     Background="{StaticResource SecondaryBrush}"
                     Style="{StaticResource CustomBorderStyle}">
-                    <Grid Height="45" HorizontalAlignment="Left">
+                    <Grid HorizontalAlignment="Left">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="20" />
@@ -84,7 +84,7 @@
                             <TextBlock
                                 Foreground="{StaticResource WhiteBrush}"
                                 Style="{StaticResource MediumText}"
-                                Text="My Transactions" />
+                                Text="Transactions Overview" />
                         </Border>
                     </Grid>
                 </Border>
@@ -189,10 +189,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Grid
-                            Grid.Column="0"
-                            Height="45"
-                            HorizontalAlignment="Left">
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="20" />
@@ -253,10 +250,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Grid
-                            Grid.Column="0"
-                            Height="45"
-                            HorizontalAlignment="Left">
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="20" />
@@ -322,10 +316,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Grid
-                            Grid.Column="0"
-                            Height="45"
-                            HorizontalAlignment="Left">
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="20" />

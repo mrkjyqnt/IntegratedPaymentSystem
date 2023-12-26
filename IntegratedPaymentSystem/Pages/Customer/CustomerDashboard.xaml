@@ -178,7 +178,7 @@
                         <!--  Due Date  -->
                         <Border
                             Grid.Column="0"
-                            Padding="20,10"
+                            Padding="20,15"
                             Background="{StaticResource SecondaryBrush}"
                             Style="{StaticResource CustomBorderStyle}">
                             <Grid VerticalAlignment="Center">
@@ -209,7 +209,7 @@
                         <!--  Payment  -->
                         <Border
                             Grid.Column="2"
-                            Padding="20,10"
+                            Padding="20,15"
                             Background="{StaticResource SecondaryBrush}"
                             Style="{StaticResource CustomBorderStyle}">
 
@@ -289,10 +289,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Grid
-                            Grid.Column="0"
-                            Height="45"
-                            HorizontalAlignment="Left">
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="20" />
@@ -315,7 +312,6 @@
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center">
                                 <TextBlock
-                                    Grid.Row="2"
                                     Foreground="{StaticResource WhiteBrush}"
                                     Style="{StaticResource MediumText}"
                                     Text="Account Overview" />
@@ -474,10 +470,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Grid
-                            Grid.Column="0"
-                            Height="45"
-                            HorizontalAlignment="Left">
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="20" />

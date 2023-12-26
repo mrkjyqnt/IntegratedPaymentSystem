@@ -77,7 +77,7 @@ Public Class CollectorSearch
 
         If rowData IsNot Nothing Then
 
-            ChangeView(mainView, New CollectorPaymentOverview(rowData.AccountID))
+            ChangeView(mainView, New CollectorCustomerView(rowData.AccountID))
             
         End If
     End Sub

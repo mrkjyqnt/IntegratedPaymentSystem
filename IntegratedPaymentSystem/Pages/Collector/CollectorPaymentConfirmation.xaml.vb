@@ -29,7 +29,7 @@ Public Class CollectorPaymentConfirmation
             ViewControl.Instance.Initialize(_mainWindow)
         End If
 
-        TextAmount.Text = CollectorPaymentOverview.ToPay.ToString()
+        TextAmount.Text = CollectorCustomerView.ToPay.ToString()
 
     End Sub
 
@@ -38,7 +38,7 @@ Public Class CollectorPaymentConfirmation
 
         If sender Is ButtonBack Then
 
-            ChangeView(mainView, new CollectorPaymentOverview(customerData.CustomerData.AccountID))
+            ChangeView(mainView, new CollectorCustomerView(customerData.CustomerData.AccountID))
 
         ElseIf sender Is ButtonConfirm Then
 
@@ -53,7 +53,7 @@ Public Class CollectorPaymentConfirmation
                     .TransactionDate = Date.Today.Date
                     .Description = $"From {customerData.CustomerData.FullName} to {customerData.UserData.FullName} using "
                     .Others = "None"
-                    .Amount = CollectorPaymentOverview.ToPay
+                    .Amount = CollectorCustomerView.ToPay
                     .CollectorID = customerData.UserData.AccountID
                     .CustomerID = customerData.CustomerData.AccountID
                     .PlanID = customerData.CustomerConnectionData.PlanID

@@ -197,10 +197,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Grid
-                            Grid.Column="0"
-                            Height="45"
-                            HorizontalAlignment="Left">
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="20" />
@@ -381,10 +378,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Grid
-                            Grid.Column="0"
-                            Height="45"
-                            HorizontalAlignment="Left">
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="20" />
@@ -441,10 +435,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Grid
-                            Grid.Column="0"
-                            Height="45"
-                            HorizontalAlignment="Left">
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="20" />

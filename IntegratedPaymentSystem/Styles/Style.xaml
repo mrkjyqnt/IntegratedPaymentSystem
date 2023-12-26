@@ -162,7 +162,7 @@
                             HorizontalAlignment="Left"
                             VerticalAlignment="Center"
                             Background="{StaticResource DefaultBrush}"
-                            Style="{StaticResource NeutralButton}">
+                            Style="{StaticResource DefaultButton}">
 
                             <Grid>
                                 <Grid.ColumnDefinitions>

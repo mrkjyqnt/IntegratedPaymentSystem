@@ -151,7 +151,7 @@
                     Grid.Row="0"
                     Width="Auto"
                     Height="Auto"
-                    Padding="20,10"
+                    Padding="20,20"
                     Background="{StaticResource SecondaryBrush}"
                     Style="{StaticResource CustomBorderStyle}">
 
@@ -163,10 +163,7 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <Grid
-                            Grid.Column="0"
-                            Height="45"
-                            HorizontalAlignment="Left">
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="20" />
@@ -311,7 +308,7 @@
                     Grid.Row="0"
                     Width="Auto"
                     Height="Auto"
-                    Padding="20,10"
+                    Padding="20,20"
                     Background="{StaticResource SecondaryBrush}"
                     Style="{StaticResource CustomBorderStyle}">
                     <Grid VerticalAlignment="Center">
@@ -321,10 +318,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Grid
-                            Grid.Column="0"
-                            Height="45"
-                            HorizontalAlignment="Left">
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="20" />
@@ -444,7 +438,7 @@
                     Grid.Row="4"
                     Width="Auto"
                     Height="Auto"
-                    Padding="20,10"
+                    Padding="20,15"
                     Background="{StaticResource SecondaryBrush}"
                     Style="{StaticResource CustomBorderStyle}">
                     <Grid VerticalAlignment="Center">

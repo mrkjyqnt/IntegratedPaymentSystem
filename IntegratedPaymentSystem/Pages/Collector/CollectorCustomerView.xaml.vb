@@ -4,7 +4,7 @@ Imports System.Security.Principal
 Imports System.Windows.Interop
 Imports iText.StyledXmlParser.Jsoup.Select
 
-Public Class CollectorPaymentOverview
+Public Class CollectorCustomerView
     Inherits UserControl
 
     Implements INotifyPropertyChanged
