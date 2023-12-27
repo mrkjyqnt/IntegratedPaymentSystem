@@ -153,14 +153,14 @@
                                         VerticalAlignment="Center"
                                         Foreground="{StaticResource WhiteBrush}"
                                         Style="{StaticResource BoldText}"
-                                        Text="Account ID" />
+                                        Text="Username" />
                                     <TextBlock
                                         Grid.Row="2"
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Center"
                                         Foreground="{StaticResource WhiteBrush}"
                                         Style="{StaticResource RegularText}"
-                                        Text="{Binding UserData.AccountID}" />
+                                        Text="{Binding User.Username}" />
 
                                 </Grid>
 

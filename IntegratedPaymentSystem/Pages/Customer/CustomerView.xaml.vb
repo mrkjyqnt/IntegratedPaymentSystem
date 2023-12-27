@@ -10,10 +10,12 @@ Public Class CustomerView
 
     Private _billingData As UserBillingModel
     Private _adminBillingData As BillingsModel
+    Private _user As AccountsModel
     Private _userData As UserInformationModel
     Private _transactionsData As List(Of UserTransactionsModel)
     Private _activitiesData As List(Of UserActivitiesModel)
     Private _connectionData As UserConnectionModel
+
     Public Property BillingData As UserBillingModel
         Get
             Return _billingData
@@ -22,6 +24,18 @@ Public Class CustomerView
             If _billingData IsNot value Then
                 _billingData = value
                 OnPropertyChanged("BillingData")
+            End If
+        End Set
+    End Property
+
+    Public Property User As AccountsModel
+        Get
+            Return _user
+        End Get
+        Set(value As AccountsModel)
+            If _user IsNot value Then
+                _user = value
+                OnPropertyChanged("User")
             End If
         End Set
     End Property
@@ -49,6 +63,7 @@ Public Class CustomerView
             End If
         End Set
     End Property
+
     Public Property ConnectionData As UserConnectionModel
         Get
             Return _connectionData
@@ -111,6 +126,7 @@ Public Class CustomerView
 
         Me.DataContext = Models.UserInformation
 
+        User = Models.User
         UserData = Models.UserInformation
         TransactionsData = Models.UserTransactions
         ConnectionData = Models.UserConnection

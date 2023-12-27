@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="CustomerActivities"
+    x:Class="CollectorActivities"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -127,8 +127,7 @@
 
                 <DataGrid
                     x:Name="TransactionData"
-                    MaxHeight="500"
-                    local:DesignTrigger.RuntimeStyle="True"
+                    MaxHeight="700"
                     AutoGenerateColumns="False"
                     CanUserAddRows="False"
                     CanUserDeleteRows="False"

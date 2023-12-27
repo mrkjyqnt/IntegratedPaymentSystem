@@ -1,9 +1,8 @@
 ﻿Imports System.ComponentModel
 Imports System.Transactions
 
-Public Class CustomerActivities
+Public Class CollectorActivities
     Private ReadOnly _activities = Models.UserActivities
-    Public Property IsDesignTime As Boolean = True
 
     Public Sub New()
         ' This call is required by the designer.
@@ -20,9 +19,6 @@ Public Class CustomerActivities
         If mainWindow IsNot Nothing Then
             ViewControl.Instance.Initialize(mainWindow)
         End If
-
-
-
     End Sub
     Private Sub OnSearchChanged(sender As Object, e As TextChangedEventArgs)
         Dim searchText As String = TextBoxSearch.Text.Trim.ToLower()
@@ -68,10 +64,5 @@ Public Class CustomerActivities
             Dim sortDescription As New SortDescription("ActivityDate", direction)
             view.SortDescriptions.Add(sortDescription)
         End If
-    End Sub
-
-    Private Sub DataGrid_Loaded(sender As Object, e As RoutedEventArgs)
-        Dim dataGrid As DataGrid = CType(sender, DataGrid)
-        dataGrid.Style = TryCast(Application.Current.Resources("RuntimeTable"), Style)
     End Sub
 End Class

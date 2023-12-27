@@ -129,12 +129,14 @@
 
                 <DataGrid
                     x:Name="TransactionData"
+                    Height="26"
+                    VerticalAlignment="Top"
                     AutoGenerateColumns="False"
                     CanUserAddRows="False"
                     CanUserResizeRows="False"
                     CanUserSortColumns="False"
                     ItemsSource="{Binding CustomersListData}"
-                    Style="{StaticResource DefaultTable}">
+                    Style="{StaticResource DesignTable}">
 
 
                     <DataGrid.Columns>

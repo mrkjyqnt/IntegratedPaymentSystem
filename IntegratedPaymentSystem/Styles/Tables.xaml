@@ -83,7 +83,7 @@
     </Style>
 
     <!--  Main styling  -->
-    <Style x:Key="DefaultTable" TargetType="DataGrid">
+    <Style x:Key="DesignTable" TargetType="DataGrid">
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Background" Value="{StaticResource SecondaryBrush}" />
         <Setter Property="IsReadOnly" Value="True" />
@@ -104,7 +104,10 @@
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="5">
-                        <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
+                        <ScrollViewer
+                            Focusable="false"
+                            HorizontalScrollBarVisibility="Auto"
+                            VerticalScrollBarVisibility="Auto">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto" />
@@ -113,8 +116,54 @@
 
                                 <DataGridColumnHeadersPresenter Grid.Row="0" />
                                 <ItemsPresenter Grid.Row="1" />
+
                             </Grid>
                         </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="RuntimeTable" TargetType="DataGrid">
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Background" Value="{StaticResource SecondaryBrush}" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="HeadersVisibility" Value="Column" />
+        <Setter Property="SelectionMode" Value="Extended" />
+        <Setter Property="SelectionUnit" Value="FullRow" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="CellStyle" Value="{StaticResource TableCell}" />
+        <Setter Property="RowStyle" Value="{StaticResource TableRow}" />
+        <Setter Property="ColumnHeaderStyle" Value="{StaticResource TableColumnHeader}" />
+        <Setter Property="GridLinesVisibility" Value="None" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type DataGrid}">
+                    <Border
+                        Padding="65,10"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="5">
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+
+                            <DataGridColumnHeadersPresenter Grid.Row="0" />
+
+                            <ScrollViewer
+                                Grid.Row="1"
+                                Focusable="false"
+                                HorizontalScrollBarVisibility="Auto"
+                                VerticalScrollBarVisibility="Auto">
+                                <ItemsPresenter />
+                            </ScrollViewer>
+                        </Grid>
+
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

@@ -200,7 +200,7 @@
                         CanUserResizeRows="False"
                         CanUserSortColumns="False"
                         ItemsSource="{Binding TransactionsData}"
-                        Style="{StaticResource DefaultTable}">
+                        Style="{StaticResource DesignTable}">
 
 
                         <DataGrid.Columns>

@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:IntegratedPaymentSystem"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignWidth="800"
+    DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:CollectorView}}}"
     mc:Ignorable="d">
 
 
@@ -152,14 +153,14 @@
                                         VerticalAlignment="Center"
                                         Foreground="{StaticResource WhiteBrush}"
                                         Style="{StaticResource BoldText}"
-                                        Text="Account ID" />
+                                        Text="Username" />
                                     <TextBlock
                                         Grid.Row="2"
                                         HorizontalAlignment="Left"
                                         VerticalAlignment="Center"
                                         Foreground="{StaticResource WhiteBrush}"
                                         Style="{StaticResource RegularText}"
-                                        Text="{Binding UserData.AccountID}" />
+                                        Text="{Binding User.Username}" />
 
                                 </Grid>
 
@@ -292,7 +293,7 @@
                                         Grid.Row="4"
                                         Foreground="{StaticResource WhiteBrush}"
                                         Style="{StaticResource RegularText}"
-                                        Text="Account Number" />
+                                        Text="Account ID" />
                                     <TextBlock
                                         Grid.Row="6"
                                         Foreground="{StaticResource WhiteBrush}"

@@ -9,6 +9,7 @@ Public Class CollectorView
 
     Private _transactionsData As List(Of UserTransactionsModel)
     Private _adminBillingData As BillingsModel
+    Private _user As AccountsModel
     Private _userData As UserInformationModel
     Private _customersListData As List(Of AccountInformationsModel)
 
@@ -76,6 +77,18 @@ Public Class CollectorView
         End Set
     End Property
 
+    Public Property User As AccountsModel
+        Get
+            Return _user
+        End Get
+        Set(value As AccountsModel)
+            If _user IsNot value Then
+                _user = value
+                OnPropertyChanged("User")
+            End If
+        End Set
+    End Property
+
     Public Property UserData As UserInformationModel
         Get
             Return _userData
@@ -113,6 +126,7 @@ Public Class CollectorView
         ChangeView(mainView, New CollectorDashboard())
         Me.DataContext = Models.UserInformation
 
+        User = Models.User
         UserData = Models.UserInformation
         TransactionsData = Models.UserTransactions
         AdminBillingData = Models.AdminBilling

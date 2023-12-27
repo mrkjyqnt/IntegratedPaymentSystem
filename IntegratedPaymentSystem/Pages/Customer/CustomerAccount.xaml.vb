@@ -38,8 +38,8 @@ Public Class CustomerAccount
 
         ElseIf sender Is ButtonActivities Then
 
-            '_customerView.NavigationChange("Activities")
-            'ChangeView(mainView, new CustomerActivities)
+            _customerView.NavigationChange("Activities")
+            ChangeView(mainView, new CustomerActivities)
 
         End If
 

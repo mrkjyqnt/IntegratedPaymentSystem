@@ -368,7 +368,7 @@
                         CanUserResizeRows="False"
                         CanUserSortColumns="False"
                         ItemsSource="{Binding TransactionsData, UpdateSourceTrigger=PropertyChanged}"
-                        Style="{StaticResource DefaultTable}">
+                        Style="{StaticResource DesignTable}">
 
 
                         <DataGrid.Columns>

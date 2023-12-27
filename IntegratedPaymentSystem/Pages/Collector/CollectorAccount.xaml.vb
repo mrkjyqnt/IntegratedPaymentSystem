@@ -32,8 +32,13 @@ Public Class CollectorAccount
 
         ElseIf sender Is ButtonActivities Then
 
-            '_collectorView.NavigationChange("Activities")
-            'ChangeView(mainView, new CollectorActivities())
+            _collectorView.NavigationChange("Activities")
+            ChangeView(mainView, new CollectorActivities())
+
+        ElseIf sender Is ButtonAccount Then
+
+            Dim showInformation As New CollectorInformation()
+            showInformation.ShowDialog()
 
         End If
 
