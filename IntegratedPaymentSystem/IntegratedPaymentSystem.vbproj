@@ -28,6 +28,10 @@
     <None Remove="Resources\Images\icon_chat_filled.png" />
     <None Remove="Resources\Images\icon_clock.png" />
     <None Remove="Resources\Images\icon_dashboard_filled.png" />
+    <None Remove="Resources\Images\icon_data.png" />
+    <None Remove="Resources\Images\icon_data_filled.png" />
+    <None Remove="Resources\Images\icon_finance.png" />
+    <None Remove="Resources\Images\icon_finance_filled.png" />
     <None Remove="Resources\Images\icon_info.png" />
     <None Remove="Resources\Images\icon_open.png" />
     <None Remove="Resources\Images\icon_plus.png" />
@@ -35,6 +39,8 @@
     <None Remove="Resources\Images\icon_search.png" />
     <None Remove="Resources\Images\icon_transaction.png" />
     <None Remove="Resources\Images\icon_transaction_filled.png" />
+    <None Remove="Resources\Images\icon_users.png" />
+    <None Remove="Resources\Images\icon_users_filled.png" />
     <None Remove="Resources\Images\icon_wifi.png" />
   </ItemGroup>
 
@@ -56,6 +62,7 @@
     <PackageReference Include="MailKit" Version="4.3.0" />
     <PackageReference Include="MimeKit" Version="4.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="PDFsharp" Version="6.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
@@ -80,6 +87,10 @@
     <Resource Include="Resources\Images\icon_chat_filled.png" />
     <Resource Include="Resources\Images\icon_clock.png" />
     <Resource Include="Resources\Images\icon_dashboard_filled.png" />
+    <Resource Include="Resources\Images\icon_data.png" />
+    <Resource Include="Resources\Images\icon_data_filled.png" />
+    <Resource Include="Resources\Images\icon_finance.png" />
+    <Resource Include="Resources\Images\icon_finance_filled.png" />
     <Resource Include="Resources\Images\icon_info.png" />
     <Resource Include="Resources\Images\icon_open.png" />
     <Resource Include="Resources\Images\icon_plus.png" />
@@ -87,15 +98,26 @@
     <Resource Include="Resources\Images\icon_search.png" />
     <Resource Include="Resources\Images\icon_transaction.png" />
     <Resource Include="Resources\Images\icon_transaction_filled.png" />
+    <Resource Include="Resources\Images\icon_users.png" />
+    <Resource Include="Resources\Images\icon_users_filled.png" />
     <Resource Include="Resources\Images\icon_wifi.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="My Project\" />
-    <Folder Include="Pages\Admin\" />
+    <Folder Include="Pages\Admin\Dialog\" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Pages\Admin\AdminFinancial.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Admin\AdminExternalTransactions.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Admin\AdminPayments.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\Collector\Dialog\CollectorPrint.xaml.vb">
       <SubType>Code</SubType>
     </Compile>

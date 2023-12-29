@@ -23,14 +23,21 @@
                         modelControl.BuildCustomerModels()
 
                         ViewControl.Instance.ChangeView(New CustomerView())
+
                     Case "collector"
 
                         Models.User = user
                         modelControl.BuildCollectorModels()
 
                         ViewControl.Instance.ChangeView(New CollectorView())
+
                     Case "administrator"
-                        modelControl.BuildModels()
+
+                        Models.User = user
+                        modelControl.BuildAdministratorModels()
+
+                        ViewControl.Instance.ChangeView(New AdminView())
+
                     Case Else
                         Message.Show("Invalid", "Unknown <bold>User Type</bold>")
                 End Select
@@ -43,7 +50,7 @@
             
         Else 
 
-            Message.Show("Invalid", "Wrong <bold>Username</bold>")
+            Message.Show("Invalid", "<bold>Username</bold> not found")
             
         End If
     End Sub

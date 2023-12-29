@@ -14,7 +14,7 @@ Module PaymentControl
     Private _UserTransactionModel As New UserTransactionsModel()
     Private _InternalTransactionsModel As New InternalTransactionsModel()
 
-    Public Function CreatePaymentDate(LastDayConnected As Date, Optional LastPaymentStatus As String = "")
+    Public Function CreatePaymentDate(LastDayConnected As Date)
         ThisMonth = LastDayConnected.AddDays(1 - LastDayConnected.Day).AddMonths(1)
         ThisMonthSpan = ThisMonth.AddDays(2)
         ThisMonthWholeDays = Math.Abs((New Date(LastDayConnected.Year, LastDayConnected.Month, 6) - ThisMonth).Days)

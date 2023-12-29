@@ -144,6 +144,27 @@ Public Class UserTransactionsModel
     Public Sub New()
     End Sub
 
+    Public Shared Function GetAll() As List(Of UserTransactionsModel)
+        Dim transactionList = From it In Models.InternalTransactions
+                Join customer In Models.AccountInformations On it.CustomerID Equals customer.ID
+                Join collector In Models.AccountInformations On it.CollectorID Equals collector.ID
+                Join ip In Models.InternetPlans On it.PlanID Equals ip.ID
+                Order By it.ID Descending
+                Select New UserTransactionsModel(
+                    it.ID,
+                    it.Status,
+                    it.Type,
+                    it.Description,
+                    it.Others,
+                    it.TransactionDate,
+                    it.Amount.ToString("0.00"),
+                    Customer:=$"{customer.FirstName} {customer.LastName}",
+                    Collector:=$"{collector.FirstName} {collector.LastName}"
+                    )
+
+        Return transactionList.ToList()
+    End Function
+
     Public Shared Function GetAllByCustomerID(ID As Integer) As List(Of UserTransactionsModel)
         Dim TransactionList = From it In Models.InternalTransactions
                               Join customer In Models.AccountInformations On it.CustomerID Equals customer.ID

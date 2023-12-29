@@ -128,7 +128,6 @@
                 <DataGrid
                     x:Name="TransactionData"
                     MaxHeight="500"
-                    local:DesignTrigger.RuntimeStyle="True"
                     AutoGenerateColumns="False"
                     CanUserAddRows="False"
                     CanUserDeleteRows="False"

@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports iText.Layout.Element
-Imports iText.Layout
 
 Module PDFControl
 

@@ -1,0 +1,543 @@
+﻿<UserControl
+    x:Class="AdminDashboard"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:IntegratedPaymentSystem"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="666.3"
+    d:DesignWidth="800"
+    DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:AdminView}}}"
+    ScrollViewer.VerticalScrollBarVisibility="Auto"
+    mc:Ignorable="d">
+
+
+    <Grid Name="mainView" VerticalAlignment="Top">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="0">
+            <!--  Title  -->
+            <Grid Grid.Row="0" VerticalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="{StaticResource WhiteBrush}"
+                    Style="{StaticResource TitleText}"
+                    Text="Dashboard" />
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="7.50" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="7.50" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="7.50" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  Financial Overview  -->
+            <Grid
+                VerticalAlignment="Center"
+                Column="0"
+                Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2.50" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Button
+                    x:Name="ButtonFinancial"
+                    Grid.Row="0"
+                    Width="Auto"
+                    Height="Auto"
+                    Background="{StaticResource SecondaryBrush}"
+                    Click="Button_Click"
+                    Style="{StaticResource FrameButton}">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Grid.Column="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+                                <Image
+                                    Width="25"
+                                    Height="25"
+                                    HorizontalAlignment="Left"
+                                    Source="{StaticResource FinanceLined}"
+                                    Stretch="Fill" />
+                            </Border>
+                            <TextBlock
+                                Grid.Column="2"
+                                VerticalAlignment="Center"
+                                Foreground="{StaticResource WhiteBrush}"
+                                Style="{StaticResource MediumText}"
+                                Text="Financial Overview" />
+                        </Grid>
+
+                        <Border
+                            Grid.Column="2"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center">
+                            <Image
+                                Width="15"
+                                Height="15"
+                                HorizontalAlignment="Right"
+                                Source="{StaticResource ArrowLined}"
+                                Stretch="Fill" />
+                        </Border>
+                    </Grid>
+                </Button>
+
+                <Border Grid.Row="2" VerticalAlignment="Center">
+                    <Grid VerticalAlignment="Center">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="2.50" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border
+                            Grid.Column="0"
+                            Padding="30,20"
+                            Background="{StaticResource SecondaryBrush}"
+                            Style="{StaticResource CustomBorderStyle}">
+                            <Grid Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="2.50" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="2.50" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource MediumText}"><Run Language="en-ph" Text="This Week" /></TextBlock>
+                                <TextBlock
+                                    x:Name="TextWeekSales"
+                                    Grid.Row="2"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource LargeNumber}"><Run Language="en-ph" Text="000000" /></TextBlock>
+
+                                <Grid Row="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock
+                                        x:Name="TextWeekSalesPercent"
+                                        Grid.Column="0"
+                                        Foreground="{StaticResource PositiveBrush}"
+                                        Style="{StaticResource RegularText}"><Run Language="en-ph" Text="00% higher" /></TextBlock>
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Foreground="{StaticResource WhiteBrush}"
+                                        Style="{StaticResource RegularText}"><Run Language="en-ph" Text=" than last week" /></TextBlock>
+                                </Grid>
+                            </Grid>
+                        </Border>
+
+                        <Border
+                            Grid.Column="2"
+                            Padding="30,20"
+                            Background="{StaticResource SecondaryBrush}"
+                            Style="{StaticResource CustomBorderStyle}">
+                            <Grid Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="2.50" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="2.50" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource MediumText}"><Run Language="en-ph" Text="This Month" /></TextBlock>
+                                <TextBlock
+                                    x:Name="TextMonthSales"
+                                    Grid.Row="2"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource LargeNumber}"><Run Language="en-ph" Text="000000" /></TextBlock>
+                                <Grid Row="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock
+                                        x:Name="TextMonthSalesPercent"
+                                        Grid.Column="0"
+                                        Foreground="{StaticResource PositiveBrush}"
+                                        Style="{StaticResource RegularText}"><Run Language="en-ph" Text="00% higher" /></TextBlock>
+                                    <TextBlock
+                                        Grid.Column="1"
+                                        Foreground="{StaticResource WhiteBrush}"
+                                        Style="{StaticResource RegularText}"><Run Language="en-ph" Text=" than last week" /></TextBlock>
+                                </Grid>
+                            </Grid>
+                        </Border>
+
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!--  Payments Overview  -->
+            <Grid
+                VerticalAlignment="Center"
+                Column="0"
+                Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2.50" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2.50" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Button
+                    x:Name="ButtonPayments"
+                    Grid.Row="0"
+                    Width="Auto"
+                    Height="Auto"
+                    Background="{StaticResource SecondaryBrush}"
+                    Click="Button_Click"
+                    Style="{StaticResource FrameButton}">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Grid.Column="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+                                <Image
+                                    Width="25"
+                                    Height="25"
+                                    HorizontalAlignment="Left"
+                                    Source="{StaticResource TransactionLined}"
+                                    Stretch="Fill" />
+                            </Border>
+                            <TextBlock
+                                Grid.Column="2"
+                                VerticalAlignment="Center"
+                                Foreground="{StaticResource WhiteBrush}"
+                                Style="{StaticResource MediumText}"
+                                Text="Payments Overview" />
+                        </Grid>
+
+                        <Border
+                            Grid.Column="2"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center">
+                            <Image
+                                Width="15"
+                                Height="15"
+                                HorizontalAlignment="Right"
+                                Source="{StaticResource ArrowLined}"
+                                Stretch="Fill" />
+                        </Border>
+                    </Grid>
+                </Button>
+
+                <Border
+                    Grid.Row="2"
+                    Width="Auto"
+                    Height="Auto"
+                    Padding="20,20"
+                    Background="{StaticResource SecondaryBrush}"
+                    Style="{StaticResource CustomBorderStyle}">
+                    <Grid HorizontalAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Foreground="{StaticResource WhiteBrush}"
+                            Style="{StaticResource RegularText}"
+                            Text="Payments from " />
+                        <TextBlock
+                            x:Name="TextMonth"
+                            Grid.Column="1"
+                            Foreground="{StaticResource WhiteBrush}"
+                            Style="{StaticResource MediumText}"
+                            Text="January 01, 2023" />
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Row="4"
+                    Height="Auto"
+                    Padding="65,20"
+                    VerticalAlignment="Center"
+                    Background="{StaticResource SecondaryBrush}"
+                    BorderThickness="0"
+                    Style="{StaticResource CustomBorderStyle}">
+                    <Grid VerticalAlignment="Center">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Column="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="2.50" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock
+                                x:Name="TextPending"
+                                Grid.Row="0"
+                                Foreground="{StaticResource WhiteBrush}"
+                                Style="{StaticResource LargeNumber}"><Run Language="en-ph" Text="000000" /></TextBlock>
+                            <TextBlock
+                                Grid.Row="2"
+                                Foreground="{StaticResource NeutralBrush}"
+                                Style="{StaticResource RegularText}"><Run Language="en-ph" Text="Pending" /></TextBlock>
+                        </Grid>
+
+                        <Grid Column="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="2.50" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock
+                                x:Name="TextConfirmed"
+                                Grid.Row="0"
+                                Foreground="{StaticResource WhiteBrush}"
+                                Style="{StaticResource LargeNumber}"><Run Language="en-ph" Text="000000" /></TextBlock>
+                            <TextBlock
+                                Grid.Row="2"
+                                Foreground="{StaticResource PositiveBrush}"
+                                Style="{StaticResource RegularText}"><Run Language="en-ph" Text="Confirmed" /></TextBlock>
+                        </Grid>
+
+                        <Grid Column="4">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="2.50" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <TextBlock
+                                x:Name="TextDeclined"
+                                Grid.Row="0"
+                                Foreground="{StaticResource WhiteBrush}"
+                                Style="{StaticResource LargeNumber}"><Run Language="en-ph" Text="000000" /></TextBlock>
+                            <TextBlock
+                                Grid.Row="2"
+                                Foreground="{StaticResource NegativeBrush}"
+                                Style="{StaticResource RegularText}"><Run Language="en-ph" Text="Declined" /></TextBlock>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <!--  Account Overview  -->
+            <Grid Grid.Row="4" VerticalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="7.50" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Button
+                    x:Name="ButtonUserManagement"
+                    Grid.Row="0"
+                    Width="Auto"
+                    Height="Auto"
+                    Background="{StaticResource SecondaryBrush}"
+                    Click="Button_Click"
+                    Style="{StaticResource FrameButton}">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Grid.Column="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+                                <Image
+                                    Width="25"
+                                    Height="25"
+                                    HorizontalAlignment="Left"
+                                    Source="{StaticResource UsersLine}"
+                                    Stretch="Fill" />
+                            </Border>
+                            <Grid
+                                Grid.Column="2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="2.50" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource MediumText}"
+                                    Text="User Management" />
+
+                                <TextBlock
+                                    Grid.Row="2"
+                                    Foreground="{StaticResource DisabledBrush}"
+                                    Style="{StaticResource RegularText}"
+                                    Text="Manage, Edit, and Delete users from the system" />
+
+                            </Grid>
+                        </Grid>
+
+                        <Border
+                            Grid.Column="2"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center">
+                            <Image
+                                Width="15"
+                                Height="15"
+                                HorizontalAlignment="Right"
+                                Source="{StaticResource ArrowLined}"
+                                Stretch="Fill" />
+                        </Border>
+                    </Grid>
+                </Button>
+
+                <Button
+                    x:Name="ButtonDataBackup"
+                    Grid.Row="2"
+                    Width="Auto"
+                    Height="Auto"
+                    Background="{StaticResource SecondaryBrush}"
+                    Click="Button_Click"
+                    Style="{StaticResource FrameButton}">
+
+                    <Grid>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Grid.Column="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+                                <Image
+                                    Width="25"
+                                    Height="25"
+                                    HorizontalAlignment="Left"
+                                    Source="{StaticResource DataLine}"
+                                    Stretch="Fill" />
+                            </Border>
+                            <Grid
+                                Grid.Column="2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="2.50" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource MediumText}"
+                                    Text="Data Backup and Recovery" />
+
+                                <TextBlock
+                                    Grid.Row="2"
+                                    Foreground="{StaticResource DisabledBrush}"
+                                    Style="{StaticResource RegularText}"
+                                    Text="Backup and Recovery for the Data" />
+
+                            </Grid>
+                        </Grid>
+
+                        <Border
+                            Grid.Column="2"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center">
+                            <Image
+                                Width="15"
+                                Height="15"
+                                HorizontalAlignment="Right"
+                                Source="{StaticResource ArrowLined}"
+                                Stretch="Fill" />
+                        </Border>
+                    </Grid>
+                </Button>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</UserControl>

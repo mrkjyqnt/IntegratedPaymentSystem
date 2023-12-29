@@ -3,6 +3,7 @@ Imports System.Windows.Media.Effects
 
 Public Class CustomConfirmationBox
     Private _confirmation as String
+    Public Shared Property _confirmedText As String
 
     Public Sub New(title As String, message As String, Optional confirmation As String = Nothing, Optional ownerWindow As Window = Nothing)
 
@@ -18,7 +19,11 @@ Public Class CustomConfirmationBox
             TextConfirmation.Visibility = Visibility.Collapsed
             FormatTextblock(TextError, message)
 
-        Else 
+        ElseIf _confirmation Is "Empty" Then
+
+            FormatTextblock(TextError, message)
+
+        Else
 
             FormatTextblock(TextError, message)
 
@@ -39,18 +44,30 @@ Public Class CustomConfirmationBox
                 
             Else 
 
-                If TextConfirmation.Text = _confirmation Then
+                If _confirmation Is "Empty" Then
 
-                    Message.Show("Success", $"Action has been executed")
+                    _confirmedText = TextConfirmation.Text.ToString()
+                    MsgBox(_confirmedText)
                     Me.DialogResult = True
 
                 Else 
 
-                    Message.Show("Error", $"Please enter the confirmaation")
-                    ApplyBlurEffect()
-                    Return
+                    If TextConfirmation.Text = _confirmation Then
+
+                        Message.Show("Success", $"Action has been executed")
+                        Me.DialogResult = True
+
+                    Else 
+
+                        Message.Show("Error", $"Please enter the confirmaation")
+                        ApplyBlurEffect()
+                        Return
+
+                    End If
 
                 End If
+
+                
 
             End If
 

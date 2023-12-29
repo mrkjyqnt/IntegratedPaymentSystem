@@ -1,0 +1,312 @@
+﻿<UserControl
+    x:Class="AdminView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:IntegratedPaymentSystem"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="768"
+    d:DesignWidth="1366"
+    DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:AdminView}}}"
+    mc:Ignorable="d">
+
+
+    <Grid Background="{StaticResource PrimaryBrush}">
+        <Border Padding="20,30,100,30">
+
+            <!--  Main Window  -->
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="321" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <!--  Navigation  -->
+
+                <Grid Grid.Column="0">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="25" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" CornerRadius="50">
+                            <Image
+                                Width="80"
+                                Height="80"
+                                Source="{StaticResource DefaultProfile}" />
+                        </Border>
+
+                        <Border
+                            Grid.Column="2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                            <StackPanel>
+                                <TextBlock
+                                    x:Name="FullNameTextBlock"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource MediumText}"
+                                    Text="{Binding FullName}" />
+                                <TextBlock
+                                    x:Name="EmailTextBlock"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource RegularText}"
+                                    Text="{Binding Email}" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!--  Dashboard Button  -->
+                        <Button
+                            x:Name="Dashboard"
+                            Grid.Row="0"
+                            Click="Button_Click"
+                            Foreground="{StaticResource WhiteBrush}"
+                            Style="{StaticResource NavButtonActive}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Grid.Column="0"
+                                    Width="25"
+                                    Height="25"
+                                    Source="{StaticResource DashboardFilled}" />
+                                <TextBlock
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource RegularText}"
+                                    Text="Dashboard" />
+                            </Grid>
+                        </Button>
+
+                        <!--  Payment Button  -->
+                        <Button
+                            x:Name="Payments"
+                            Grid.Row="2"
+                            Click="Button_Click"
+                            Foreground="{StaticResource WhiteBrush}"
+                            Style="{StaticResource NavButtonInactive}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Grid.Column="0"
+                                    Width="25"
+                                    Height="25"
+                                    Source="{StaticResource CardFilled}" />
+                                <TextBlock
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource RegularText}"
+                                    Text="Payments" />
+                            </Grid>
+                        </Button>
+
+                        <!--  Transaction Button  -->
+                        <Button
+                            x:Name="Financial"
+                            Grid.Row="4"
+                            Click="Button_Click"
+                            Foreground="{StaticResource WhiteBrush}"
+                            Style="{StaticResource NavButtonInactive}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Grid.Column="0"
+                                    Width="25"
+                                    Height="25"
+                                    Source="{StaticResource FinanceFilled}" />
+                                <TextBlock
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource RegularText}"
+                                    Text="Financial" />
+                            </Grid>
+                        </Button>
+
+                        <!--  Support Button  -->
+                        <Button
+                            x:Name="UserManagement"
+                            Grid.Row="6"
+                            Click="Button_Click"
+                            Foreground="{StaticResource WhiteBrush}"
+                            Style="{StaticResource NavButtonInactive}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Grid.Column="0"
+                                    Width="25"
+                                    Height="25"
+                                    Source="{StaticResource UsersFilled}" />
+                                <TextBlock
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource RegularText}"
+                                    Text="User Management" />
+                            </Grid>
+                        </Button>
+
+                        <!--  Data Backup And Recovery Button  -->
+                        <Button
+                            x:Name="DataRecovery"
+                            Grid.Row="8"
+                            Click="Button_Click"
+                            Foreground="{StaticResource WhiteBrush}"
+                            Style="{StaticResource NavButtonInactive}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Grid.Column="0"
+                                    Width="25"
+                                    Height="25"
+                                    Source="{StaticResource DataFilled}" />
+                                <TextBlock
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource RegularText}"
+                                    Text="Data Backup and Recovery" />
+                            </Grid>
+                        </Button>
+
+                        <!--  Account Button  -->
+                        <Button
+                            x:Name="Account"
+                            Grid.Row="10"
+                            Height="45"
+                            VerticalAlignment="Top"
+                            Click="Button_Click"
+                            Foreground="{StaticResource WhiteBrush}"
+                            Style="{StaticResource NavButtonInactive}">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="25" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image
+                                    Grid.Column="0"
+                                    Width="25"
+                                    Height="25"
+                                    Source="{StaticResource AccountFilled}" />
+                                <TextBlock
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource RegularText}"
+                                    Text="Account" />
+                            </Grid>
+                        </Button>
+                    </Grid>
+
+                    <Button
+                        x:Name="ButtonLogout"
+                        Grid.Row="4"
+                        Height="45"
+                        VerticalAlignment="Bottom"
+                        Click="Button_Click"
+                        Foreground="{StaticResource WhiteBrush}"
+                        Style="{StaticResource NavButtonInactive}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="25" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image
+                                Grid.Column="0"
+                                Width="25"
+                                Height="25"
+                                RenderTransformOrigin="0.5,0.5"
+                                Source="{StaticResource ArrowLined}">
+                                <Image.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform />
+                                        <SkewTransform />
+                                        <RotateTransform Angle="180" />
+                                        <TranslateTransform />
+                                    </TransformGroup>
+                                </Image.RenderTransform>
+                            </Image>
+                            <TextBlock
+                                Grid.Column="2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Style="{StaticResource RegularText}"
+                                Text="Log Out" />
+                        </Grid>
+                    </Button>
+
+                </Grid>
+
+                <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto">
+                    <Grid
+                        x:Name="mainView"
+                        VerticalAlignment="Top"
+                        ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                </ScrollViewer>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</UserControl>

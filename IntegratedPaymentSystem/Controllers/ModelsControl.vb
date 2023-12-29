@@ -6,6 +6,7 @@
     Private ReadOnly _billings As New BillingsDAL
     Private ReadOnly _internetPlans As New InternetPlansDAL
     Private ReadOnly _internalTransactions As New InternalTransactionsDAL
+    Private ReadOnly _externalTransactions As New ExternalTransactionsDAL
     Private ReadOnly _activities As New ActivitiesDAL
 
     Public Sub BuildModels()
@@ -16,7 +17,10 @@
         Models.Billings = _billings.GetAll
         Models.InternetPlans = _internetPlans.GetAll
         Models.InternalTransactions = _internalTransactions.GetAll
-        Models.Activities = _activities.GetAll()
+        Models.ExternalTransactions = _externalTransactions.GetAll
+        Models.Activities = _activities.GetAll
+
+        Models.UsersTransactions = UserTransactionsModel.GetAll
 
     End Sub
 
@@ -36,4 +40,12 @@
         Models.UserActivities = UserActivitiesModel.GetAllByID(Models.User.ID)
 
     End Sub
+
+    Public Sub BuildAdministratorModels()
+
+        Models.UserInformation = UserInformationModel.GetAllByID(Models.User.ID)
+        Models.UserActivities = UserActivitiesModel.GetAllByID(Models.User.ID)
+
+    End Sub
+
 End Class

@@ -57,6 +57,7 @@
                         HorizontalAlignment="Center"
                         Foreground="{StaticResource WhiteBrush}"
                         Style="{StaticResource RegularText}"
+                        TextAlignment="Center"
                         TextWrapping="Wrap" />
                 </Grid>
 

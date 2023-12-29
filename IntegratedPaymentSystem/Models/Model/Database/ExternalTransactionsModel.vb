@@ -1,8 +1,8 @@
 ﻿Imports System.Data
 Imports System.ComponentModel
 
-Public Class ExternalTransactionsModel
-    Inherits ExternalTransactionsAbstract
+Public Class InternalTransactionsModel
+    Inherits InternalTransactionsAbstract
     Implements INotifyPropertyChanged
 
     Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
@@ -10,10 +10,15 @@ Public Class ExternalTransactionsModel
     Public Sub New(row As DataRow)
         Dim columnMappings = New Dictionary(Of String, String) From {
                 {"ID", "ID"},
-                {"TransactionDate", "TransactionDate"},
+                {"Status", "Status"},
+                {"Type", "Type"},
                 {"Description", "Description"},
-                {"ReferenceNumber", "ReferenceNumber"},
-                {"Amount", "Amount"}
+                {"Others", "Others"},
+                {"Date", "TransactionDate"},
+                {"Amount", "Amount"},
+                {"CollectorID", "CollectorID"},
+                {"CustomerID", "CustomerID"},
+                {"PlanID", "PlanID"}
                 }
 
         Try

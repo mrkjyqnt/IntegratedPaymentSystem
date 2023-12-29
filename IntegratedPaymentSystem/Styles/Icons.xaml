@@ -5,6 +5,9 @@
     <BitmapImage x:Key="ChatFilled" UriSource="/Resources/Images/icon_chat_filled.png" />
     <BitmapImage x:Key="AccountFilled" UriSource="/Resources/Images/icon_account_filled.png" />
     <BitmapImage x:Key="TransactionFilled" UriSource="/Resources/Images/icon_transaction_filled.png" />
+    <BitmapImage x:Key="UsersFilled" UriSource="/Resources/Images/icon_users_filled.png" />
+    <BitmapImage x:Key="FinanceFilled" UriSource="/Resources/Images/icon_finance_filled.png" />
+    <BitmapImage x:Key="DataFilled" UriSource="/Resources/Images/icon_data_filled.png" />
 
     <BitmapImage x:Key="DefaultProfile" UriSource="/Resources/Images/defaultprofile.png" />
 
@@ -20,5 +23,8 @@
     <BitmapImage x:Key="PlusLined" UriSource="/Resources/Images/icon_plus.png" />
     <BitmapImage x:Key="ChatLined" UriSource="/Resources/Images/icon_chat.png" />
     <BitmapImage x:Key="PlusCircleLined" UriSource="/Resources/Images/icon_plus_circle.png" />
+    <BitmapImage x:Key="UsersLine" UriSource="/Resources/Images/icon_users.png" />
+    <BitmapImage x:Key="FinanceLined" UriSource="/Resources/Images/icon_finance.png" />
+    <BitmapImage x:Key="DataLine" UriSource="/Resources/Images/icon_data.png" />
 
 </ResourceDictionary>

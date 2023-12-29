@@ -129,10 +129,10 @@
 
                 <DataGrid
                     x:Name="TransactionData"
-                    Height="26"
-                    VerticalAlignment="Top"
+                    MaxHeight="700"
                     AutoGenerateColumns="False"
                     CanUserAddRows="False"
+                    CanUserDeleteRows="False"
                     CanUserResizeRows="False"
                     CanUserSortColumns="False"
                     ItemsSource="{Binding CustomersListData}"

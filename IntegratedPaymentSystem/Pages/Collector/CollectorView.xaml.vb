@@ -130,7 +130,7 @@ Public Class CollectorView
         UserData = Models.UserInformation
         TransactionsData = Models.UserTransactions
         AdminBillingData = Models.AdminBilling
-        CustomersListData = Models.AccountInformations.Where(Function(data) data.AccountID > 0 AndAlso Models.Accounts.Any(function(account) account.Role = "customer" AndAlso account.ID = data.AccountID)).ToList()
+        CustomersListData = Models.AccountInformations.Where(Function(data) data.AccountID > 0 AndAlso Models.Accounts.Any(function(account) account.Role = "customer")).ToList()
         CustomerData = Models.CustomerInformation
         CustomerConnectionData = Models.CustomerConnection
         CustomerTransactionsData = Models.CustomerTransactions

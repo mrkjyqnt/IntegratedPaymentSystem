@@ -1,0 +1,277 @@
+﻿<UserControl
+    x:Class="AdminSearch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:IntegratedPaymentSystem"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignWidth="800"
+    DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:CollectorView}}}"
+    mc:Ignorable="d">
+
+    <Grid x:Name="mainView">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="15" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--  HEADER  -->
+        <Grid Grid.Row="0">
+
+            <!--  Title  -->
+            <Grid Grid.Row="0" VerticalAlignment="Center">
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Foreground="{StaticResource WhiteBrush}"
+                    Style="{StaticResource TitleText}"
+                    Text="User Management" />
+            </Grid>
+
+        </Grid>
+
+        <Grid Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="7.50" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!--  BODY  -->
+
+            <!--  Add External Transaction  -->
+            <Grid Grid.Row="0" VerticalAlignment="Center">
+                <Button
+                    x:Name="ButtonPrint"
+                    Grid.Row="0"
+                    Width="Auto"
+                    Height="Auto"
+                    Background="{StaticResource SecondaryBrush}"
+                    Click="Button_Click"
+                    Style="{StaticResource ActiveFrameButton}">
+                    <Grid VerticalAlignment="Center">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" HorizontalAlignment="Left">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="3*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Border
+                                Grid.Column="0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+                                <Image
+                                    Width="25"
+                                    Height="25"
+                                    HorizontalAlignment="Left"
+                                    Source="{StaticResource PlusCircleLined}"
+                                    Stretch="Fill" />
+                            </Border>
+                            <Grid
+                                Grid.Column="2"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="2.50" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource MediumText}"
+                                    Text="Add New Account" />
+
+                                <TextBlock
+                                    Grid.Row="2"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource RegularText}"
+                                    Text="Create New Account and Set it’s Role" />
+
+                            </Grid>
+                        </Grid>
+
+                        <Border
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center">
+                            <Image
+                                Width="15"
+                                Height="15"
+                                HorizontalAlignment="Right"
+                                Source="{StaticResource OpenLined}"
+                                Stretch="Fill" />
+                        </Border>
+                    </Grid>
+                </Button>
+            </Grid>
+
+            <!--  Transaction History  -->
+            <Grid VerticalAlignment="Center" Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2.50" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="2.50" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Border
+                    Grid.Row="0"
+                    Width="Auto"
+                    Height="Auto"
+                    Padding="20,20"
+                    Background="{StaticResource SecondaryBrush}"
+                    Style="{StaticResource CustomBorderStyle}">
+                    <Grid HorizontalAlignment="Left">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="20" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border
+                            Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                            <Image
+                                Width="25"
+                                Height="25"
+                                HorizontalAlignment="Left"
+                                Source="{StaticResource AccountLined}"
+                                Stretch="Fill" />
+                        </Border>
+                        <Border
+                            Grid.Column="2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                Foreground="{StaticResource WhiteBrush}"
+                                Style="{StaticResource MediumText}"
+                                Text="User Accounts List" />
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <Border
+                    Grid.Row="2"
+                    Padding="20,15"
+                    Background="{StaticResource SecondaryBrush}"
+                    Style="{StaticResource CustomBorderStyle}">
+                    <Grid VerticalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image
+                                Grid.Column="0"
+                                Width="25"
+                                Height="25"
+                                Source="{StaticResource SearchLined}" />
+                            <TextBox
+                                x:Name="TextBoxSearch"
+                                Grid.Column="2"
+                                Width="300"
+                                TextChanged="OnSearchChanged" />
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="7.50" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ComboBox
+                                x:Name="SearchItem"
+                                Grid.Column="0"
+                                SelectedIndex="0"
+                                SelectionChanged="OnChangeSelection">
+                                <ComboBoxItem Content="None" />
+                                <ComboBoxItem Content="Date" />
+                                <ComboBoxItem Content="Type" />
+                                <ComboBoxItem Content="Status" />
+                            </ComboBox>
+                            <ComboBox
+                                x:Name="SearchItemSort"
+                                Grid.Column="2"
+                                SelectedIndex="0"
+                                SelectionChanged="OnChangeSelection">
+                                <ComboBoxItem Content="None" />
+                                <ComboBoxItem Content="Date" />
+                                <ComboBoxItem Content="Type" />
+                                <ComboBoxItem Content="Status" />
+                            </ComboBox>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="4" Style="{StaticResource CustomBorderStyle}">
+
+                    <DataGrid
+                        x:Name="TransactionData"
+                        MaxHeight="700"
+                        AutoGenerateColumns="False"
+                        CanUserAddRows="False"
+                        CanUserDeleteRows="False"
+                        CanUserResizeRows="False"
+                        CanUserSortColumns="False"
+                        ItemsSource="{Binding CustomersListData}"
+                        Style="{StaticResource DesignTable}">
+
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding AccountID}"
+                                Header="Account ID" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding FirstName}"
+                                Header="First Name" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding LastName}"
+                                Header="Last Name" />
+                            <DataGridTemplateColumn Width="*" Header="Action">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button
+                                            x:Name="ButtonViewCustomer"
+                                            Background="{StaticResource BlueBrush}"
+                                            Click="Button_Click"
+                                            Foreground="{StaticResource WhiteBrush}"
+                                            Style="{StaticResource NeutralButton}">
+                                            <TextBlock
+                                                Foreground="{StaticResource WhiteBrush}"
+                                                Style="{StaticResource RegularText}"
+                                                Text="View" />
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>
