@@ -8,6 +8,12 @@
     Public Shared Property UserBilling As UserBillingModel
     Public Shared Property UserActivities As List(Of UserActivitiesModel)
 
+    Public Shared Property Users As List(Of AccountsModel)
+    Public Shared Property UsersInformation As List(Of UserInformationModel)
+    Public Shared Property UsersTransactions As List(Of UserTransactionsModel)
+    Public Shared Property UsersConnection As List(Of UserConnectionModel)
+    Public Shared Property UsersActivities As List(Of UserActivitiesModel)
+
     Public Shared Property CustomerAccount As AccountsModel
     Public Shared Property CustomerInformation As UserInformationModel
     Public Shared Property CustomerTransactions As List(Of UserTransactionsModel)

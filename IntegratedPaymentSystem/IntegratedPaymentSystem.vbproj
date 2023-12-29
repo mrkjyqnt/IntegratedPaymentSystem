@@ -28,6 +28,10 @@
     <None Remove="Resources\Images\icon_chat_filled.png" />
     <None Remove="Resources\Images\icon_clock.png" />
     <None Remove="Resources\Images\icon_dashboard_filled.png" />
+    <None Remove="Resources\Images\icon_data.png" />
+    <None Remove="Resources\Images\icon_data_filled.png" />
+    <None Remove="Resources\Images\icon_finance.png" />
+    <None Remove="Resources\Images\icon_finance_filled.png" />
     <None Remove="Resources\Images\icon_info.png" />
     <None Remove="Resources\Images\icon_open.png" />
     <None Remove="Resources\Images\icon_plus.png" />
@@ -35,6 +39,8 @@
     <None Remove="Resources\Images\icon_search.png" />
     <None Remove="Resources\Images\icon_transaction.png" />
     <None Remove="Resources\Images\icon_transaction_filled.png" />
+    <None Remove="Resources\Images\icon_users.png" />
+    <None Remove="Resources\Images\icon_users_filled.png" />
     <None Remove="Resources\Images\icon_wifi.png" />
   </ItemGroup>
 
@@ -80,6 +86,10 @@
     <Resource Include="Resources\Images\icon_chat_filled.png" />
     <Resource Include="Resources\Images\icon_clock.png" />
     <Resource Include="Resources\Images\icon_dashboard_filled.png" />
+    <Resource Include="Resources\Images\icon_data.png" />
+    <Resource Include="Resources\Images\icon_data_filled.png" />
+    <Resource Include="Resources\Images\icon_finance.png" />
+    <Resource Include="Resources\Images\icon_finance_filled.png" />
     <Resource Include="Resources\Images\icon_info.png" />
     <Resource Include="Resources\Images\icon_open.png" />
     <Resource Include="Resources\Images\icon_plus.png" />
@@ -87,12 +97,13 @@
     <Resource Include="Resources\Images\icon_search.png" />
     <Resource Include="Resources\Images\icon_transaction.png" />
     <Resource Include="Resources\Images\icon_transaction_filled.png" />
+    <Resource Include="Resources\Images\icon_users.png" />
+    <Resource Include="Resources\Images\icon_users_filled.png" />
     <Resource Include="Resources\Images\icon_wifi.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="My Project\" />
-    <Folder Include="Pages\Admin\" />
   </ItemGroup>
 
   <ItemGroup>
