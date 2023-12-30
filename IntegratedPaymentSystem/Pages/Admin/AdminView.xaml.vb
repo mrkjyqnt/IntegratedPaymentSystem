@@ -301,6 +301,10 @@ Public Class AdminView
 
         InitializeComponent()
 
+        ViewControl.SetCurrentView = Me
+        ChangeView(mainView, New CollectorDashboard())
+        Me.DataContext = Models.UserInformation
+
         User = Models.User
         UserData = Models.UserInformation
 
