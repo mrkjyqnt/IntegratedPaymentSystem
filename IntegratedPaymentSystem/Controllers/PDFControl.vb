@@ -1,5 +1,10 @@
 ﻿Imports System.IO
+Imports iText.Kernel.Pdf
+Imports iText.Kernel.Pdf.Canvas.Parser
+Imports iText.Kernel.Pdf.Canvas.Parser.Listener
+Imports System.Text
 Imports iText.Layout.Element
+Imports iText.Kernel.Exceptions
 
 Module PDFControl
 
@@ -43,4 +48,5 @@ Module PDFControl
             Console.WriteLine("Error creating PDF: " & ex.Message)
         End Try
     End Sub
+
 End Module

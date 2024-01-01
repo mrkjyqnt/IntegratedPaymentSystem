@@ -336,13 +336,13 @@
                                 <DataGridTextColumn.CellStyle>
                                     <Style BasedOn="{StaticResource TableCell}" TargetType="DataGridCell">
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding UsersTransactionsData.Status}" Value="Completed">
+                                            <DataTrigger Binding="{Binding Status}" Value="Confirmed">
                                                 <Setter Property="Foreground" Value="{StaticResource PositiveBrush}" />
                                             </DataTrigger>
-                                            <DataTrigger Binding="{Binding UsersTransactionsData.Status}" Value="Pending">
+                                            <DataTrigger Binding="{Binding Status}" Value="Pending">
                                                 <Setter Property="Foreground" Value="{StaticResource NeutralBrush}" />
                                             </DataTrigger>
-                                            <DataTrigger Binding="{Binding UsersTransactionsData.Status}" Value="Declined">
+                                            <DataTrigger Binding="{Binding Status}" Value="Declined">
                                                 <Setter Property="Foreground" Value="{StaticResource NegativeBrush}" />
                                             </DataTrigger>
                                         </Style.Triggers>

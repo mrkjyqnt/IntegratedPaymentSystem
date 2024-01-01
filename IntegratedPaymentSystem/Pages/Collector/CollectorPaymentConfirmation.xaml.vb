@@ -59,7 +59,6 @@ Public Class CollectorPaymentConfirmation
                     .PlanID = customerData.CustomerConnectionData.PlanID
                 End With
 
-                ' Creating and adding the transaction to Models.InternalTransactions
                 _transactionModel = CreatePayment(_transactionModel)
                 _UserTransactionModel = Models.UserTransactions.FirstOrDefault(Function(data) data.ID = _transactionModel.ID)
 
@@ -80,7 +79,7 @@ Public Class CollectorPaymentConfirmation
                 NewActivity(_activityModel)
                 UpdateUserConnection(_connectionModel)
                 PrepareMail($"Collector: {Models.UserInformation.FullName}" ,"system.geekxfiber@gmail.com", Models.CustomerInformation.FullName, Models.CustomerInformation.Email, $"You made a payment to Fiber ({_transactionModel.TransactionDate:MM/dd/yyyy})")
-                AddBody(GenerateCustomerReceipt(_UserTransactionModel, Models.CustomerConnection))
+                AddBody(GenerateCustomerReceipt(_UserTransactionModel, Models.CustomerConnection, $"You made a payment to Fiber ({_transactionModel.TransactionDate:MM/dd/yyyy})"))
                 SendMail()
 
                 Message.Show("Success", "Payment has been completed")

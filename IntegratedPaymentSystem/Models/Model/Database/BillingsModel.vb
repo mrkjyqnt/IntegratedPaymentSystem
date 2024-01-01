@@ -7,6 +7,9 @@ Public Class BillingsModel
 
     Public Event PropertyChanged As PropertyChangedEventHandler Implements INotifyPropertyChanged.PropertyChanged
 
+    Public Sub New()
+    End Sub
+
     Public Sub New(row As DataRow)
         Dim user = New BillingsAbstract()
         Dim columnMappings = New Dictionary(Of String, String) From {
@@ -15,7 +18,8 @@ Public Class BillingsModel
                 {"Name", "Name"},
                 {"Number", "Number"},
                 {"Type", "Type"},
-                {"IsAdmin", "IsAdmin"}
+                {"IsAdmin", "IsAdmin"},
+                {"IsEnabled", "IsEnabled"}
                 }
 
         Try

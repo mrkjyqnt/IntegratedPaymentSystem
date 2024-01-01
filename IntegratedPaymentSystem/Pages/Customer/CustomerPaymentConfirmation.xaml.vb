@@ -36,7 +36,7 @@ Public Class CustomerPaymentConfirmation
 
         ElseIf sender Is ButtonConfirm Then
 
-            Dim result As Boolean = Message.Confirm("Are you sure?", "You cannot undo after this</newline>Enter <bold>yes</bold> to enter", "confirm")
+            Dim result As Boolean = Message.Confirm("Are you sure?", "You cannot undo after this</newline>Enter <bold>yes</bold> to enter", "yes")
 
             If result = True Then
 
@@ -60,7 +60,7 @@ Public Class CustomerPaymentConfirmation
                 With _activityModel
                     .AccountID = Models.UserInformation.AccountID
                     .Description = $"{Models.UserInformation.FullName} you sent a payment to {Models.AdminBilling.Number}"
-                    .Amount = Models.CustomerConnection.PlanAmount
+                    .Amount = Models.UserConnection.PlanAmount
                     .ActivityDate = DateTime.Today.ToString("MM/dd/yyyy")
                     .Type = "Customer Payment"
                     .Category = "Payment"
@@ -69,7 +69,7 @@ Public Class CustomerPaymentConfirmation
                 NewActivity(_activityModel)
 
                 PrepareMail($"We receieved your payment as of {_transactionModel.TransactionDate:MM/dd/yyyy}" ,"system.geekxfiber@gmail.com", Models.UserInformation.FullName, Models.UserInformation.Email, $"You made a payment to Fiber ({_transactionModel.TransactionDate:MM/dd/yyyy})")
-                AddBody(GenerateConfirmationReceipt(_UserTransactionModel, Models.CustomerConnection))
+                AddBody(GenerateConfirmationReceipt(_UserTransactionModel, Models.UserConnection))
                 SendMail()
 
                 Message.Show("Success", "Payment has been sent and will be Confirmed by the admin")

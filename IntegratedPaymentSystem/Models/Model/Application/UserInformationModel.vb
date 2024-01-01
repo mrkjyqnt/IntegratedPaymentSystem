@@ -102,6 +102,21 @@ Public Class UserInformationModel
         Me.Email = Email
     End Sub
 
+     Public Shared Function GetAll() As List(Of UserInformationModel)
+        Dim transactionList = From ai In Models.AccountInformations
+                              Order By ai.ID Descending
+                              Select New UserInformationModel(
+                                ai.ID,
+                                ai.AccountID,
+                                FullName := $"{ai.FirstName} {ai.MiddleName} {ai.LastName}",
+                                ai.Address,
+                                ai.ContactNumber,
+                                ai.Email
+                                )
+
+        Return transactionList.ToList()
+    End Function
+
     Public Shared Function GetAllByID(ID As Integer) As UserInformationModel
         Dim queryResult = (From ai In Models.AccountInformations
                            Where ai.AccountID = ID

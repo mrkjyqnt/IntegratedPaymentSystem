@@ -105,7 +105,6 @@
 
   <ItemGroup>
     <Folder Include="My Project\" />
-    <Folder Include="Pages\Admin\Dialog\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -116,6 +115,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\Admin\AdminPayments.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Admin\Dialog\AdminExternalTransationsImport.xaml.vb">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\Collector\Dialog\CollectorPrint.xaml.vb">
@@ -137,6 +139,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\Dialog\CustomConfirmationBox.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Dialog\CustomLoadingBox.xaml.vb">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Pages\Dialog\CustomMessageBox.xaml.vb">

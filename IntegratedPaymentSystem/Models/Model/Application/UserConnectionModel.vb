@@ -99,6 +99,21 @@ Public Class UserConnectionModel
         End With
     End Sub
 
+    Public Shared Function GetAll() As List(Of UserConnectionModel)
+        Dim queryResult = From c In Models.Connections
+                              Join ip In Models.InternetPlans On c.InternetPlanID Equals ip.ID
+                              Select New UserConnectionModel(
+                                  c.ID,
+                                  c.AccountID,
+                                  c.Status,
+                                  PlanID := c.InternetPlanID,
+                                  PlanName := ip.Name,
+                                  PlanAmount := ip.Price
+                              )
+
+        Return queryResult.ToList()
+    End Function
+
     Public Shared Function GetAllByID(ID As Integer) As UserConnectionModel
         Dim queryResult = (
                 From c In Models.Connections

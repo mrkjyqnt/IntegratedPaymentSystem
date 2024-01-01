@@ -26,14 +26,14 @@ Public Class AdminDashboard
 
             TextMonth.Text = Date.Today.ToString("MMMM")
 
-            TextPending.Text = Models.InternalTransactions.Where(Function(data) data.Status = "Pending").Count.ToString()
-            TextConfirmed.Text = Models.InternalTransactions.Where(Function(data) data.Status = "Confirmed").Count.ToString()
-            TextDeclined.Text = Models.InternalTransactions.Where(Function(data) data.Status = "Declined").Count.ToString()
+            TextPending.Text = Models.InternalTransactions.Where(Function(data) data.Status = "Pending" AndAlso data.TransactionDate.Month = Date.Today.Month).Count.ToString()
+            TextConfirmed.Text = Models.InternalTransactions.Where(Function(data) data.Status = "Confirmed" AndAlso data.TransactionDate.Month = Date.Today.Month).Count.ToString()
+            TextDeclined.Text = Models.InternalTransactions.Where(Function(data) data.Status = "Declined" AndAlso data.TransactionDate.Month = Date.Today.Month).Count.ToString()
 
             TextWeekSales.Text = "₱" & ThisWeekSales.ToString("#,##0")
             TextMonthSales.Text = "₱" & ThisMonthSales.ToString("#,##0")
 
-            TextWeekSalesPercent.Text = WeeksPercentage.ToString() & "%"
+            TextWeekSalesPercent.Text = WeeksPercentage.ToString("") & "%"
             TextMonthSalesPercent.Text = MonthsPercentage.ToString() & "%"
 
             If WeekResult Then

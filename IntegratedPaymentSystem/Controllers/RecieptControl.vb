@@ -1,9 +1,10 @@
 ﻿Imports System.IO
 Imports System.Reflection
 Imports System.Transactions
+Imports MimeKit
 
 Module RecieptControl
-    Public Function GenerateCustomerReceipt(transaction As UserTransactionsModel, connection As UserConnectionModel) As String
+    Public Function GenerateCustomerReceipt(transaction As UserTransactionsModel, connection As UserConnectionModel, header As String) As String
         Try
 
             Dim currentDirectory As String = Directory.GetCurrentDirectory()
@@ -25,6 +26,7 @@ Module RecieptControl
                 If File.Exists(fullPath) Then
                     Dim htmlContent As String = File.ReadAllText(fullPath)
                     ' Replace placeholders with actual data
+                    htmlContent = htmlContent.Replace("[Title]", header)
                     htmlContent = htmlContent.Replace("[Collector's Name]", transaction.Collector)
                     htmlContent = htmlContent.Replace("[Transaction Amount]", transaction.Amount.ToString("0.00"))
                     htmlContent = htmlContent.Replace("[Date of Transaction]", transaction.TransactionDate.ToString("MM/dd/yyyy"))

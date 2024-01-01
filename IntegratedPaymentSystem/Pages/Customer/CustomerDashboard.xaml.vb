@@ -30,18 +30,21 @@ Public Class CustomerDashboard
         End If
 
         if latestTransaction IsNot Nothing Then
+
             CreatePaymentDate(latestTransaction.TransactionDate)
 
             If Month(latestTransaction.TransactionDate) = Date.Today.Month Then
 
-                TextPaymentSubtitle.Text = latestTransaction.Amount.ToString("0.00")
-                ButtonPay.IsEnabled = False
-                ButtonPay.Background = TryCast(Application.Current.Resources("PositiveBrush"), Brush)
-                ButtonPay.Content = "Paid"
-                TextDuePaymentTitle.Text = "Next Payment"
-                TextDuePaymentDate.Text = $"{ThisMonth:MMMM dd, yyyy} - {ThisMonthSpan:MMMM dd, yyyy}"
+                If latestTransaction.Status = "Confirmed" Then
 
-            Else 
+                    TextPaymentSubtitle.Text = latestTransaction.Amount.ToString("0.00")
+                    ButtonPay.IsEnabled = False
+                    ButtonPay.Background = TryCast(Application.Current.Resources("PositiveBrush"), Brush)
+                    ButtonPay.Content = "Paid"
+                    TextDuePaymentTitle.Text = "Next Payment"
+                    TextDuePaymentDate.Text = $"{ThisMonth:MMMM dd, yyyy} - {ThisMonthSpan:MMMM dd, yyyy}"
+
+                End If
 
                 If latestTransaction.Status = "Pending" Then
 
@@ -52,9 +55,11 @@ Public Class CustomerDashboard
                     TextDuePaymentTitle.Text = "Paid On"
                     TextDuePaymentDate.Text = latestTransaction.TransactionDate.ToString("MMMM dd, yyyy")
 
-                Else 
+                End If
 
-                    If IsEligible() Then
+            Else
+
+                If IsEligible() Then
 
                         TextDuePaymentDate.Text = ThisMonth.ToString("MMMM dd, yyyy") & " - " & ThisMonthSpan.ToString("MMMM dd, yyyy")
                         TextDuePaymentDate.Foreground = TryCast(Application.Current.Resources("NeutralBrush"), Brush)
@@ -73,8 +78,6 @@ Public Class CustomerDashboard
 
 
                     End If
-
-                End If
 
             End If
 

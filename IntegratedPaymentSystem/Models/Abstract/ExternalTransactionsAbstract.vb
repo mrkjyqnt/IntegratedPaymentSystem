@@ -6,5 +6,6 @@
     Public Property Description As String
     Public Property ReferenceNumber As String
     Public Property Amount As Decimal
+    Public Property Status As String
 
 End Class

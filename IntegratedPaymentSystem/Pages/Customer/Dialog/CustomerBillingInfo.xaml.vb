@@ -26,7 +26,7 @@ Public Class CustomerBillingInfo
 
             If TextName.Text IsNot "" AndAlso TextNumber.Text IsNot "" Then
 
-                Models.UserBilling = New UserBillingModel(Models.Billings.Count + 1, Models.User.ID, TextName.Text, TextNumber.Text, DirectCast(ComboBoxType.SelectedItem, ComboBoxItem).Content.ToString(), False)
+                Models.UserBilling = New UserBillingModel(Models.Billings.Count + 1, Models.User.ID, TextName.Text, TextNumber.Text, DirectCast(ComboBoxType.SelectedItem, ComboBoxItem).Content.ToString(), False, False)
                 _customerView.BillingData = Models.UserBilling
    
             Else 

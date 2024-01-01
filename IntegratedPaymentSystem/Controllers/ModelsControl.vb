@@ -20,6 +20,8 @@
         Models.ExternalTransactions = _externalTransactions.GetAll
         Models.Activities = _activities.GetAll
 
+        Models.UsersInformation = UserInformationModel.GetAll
+        Models.UsersConnection = UserConnectionModel.GetAll
         Models.UsersTransactions = UserTransactionsModel.GetAll
 
     End Sub

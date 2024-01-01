@@ -102,7 +102,7 @@
               <!-- START MAIN CONTENT AREA -->
               <tr>
   <td class="wrapper" style="font-family: Helvetica, sans-serif; font-size: 16px; vertical-align: top; box-sizing: border-box; padding: 24px;" valign="top">
-    <p style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px;">You successfully paid your Internet today!</p>
+    <p style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px;">[Title]</p>
     <p style="font-family: Helvetica, sans-serif; font-size: 16px; font-weight: normal; margin: 0; margin-bottom: 16px;">The transaction details are provided below, please read carefully.</p>
     <!-- Inserted List -->
     <ul>

@@ -19,6 +19,11 @@ Module Message
         Return result
     End Function
 
+    Public Sub  Loading(MessageTitle As String, MessageText As String)
+        Dim loadingBox As New CustomLoadingBox(MessageTitle, MessageText, MeWindow())
+        loadingBox.Show()
+    End Sub
+
     Public Function MeWindow() As Window
         Return Application.Current.MainWindow
     End Function

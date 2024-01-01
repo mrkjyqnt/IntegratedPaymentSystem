@@ -15,7 +15,7 @@ Public Class CustomerPayment
         _customerViewInstance.AdminBillingData = Nothing
         Models.AdminBilling = Nothing
 
-        Models.AdminBilling = Models.Billings.FirstOrDefault(Function(billing) billing.IsAdmin = True)
+        Models.AdminBilling = Models.Billings.FirstOrDefault(Function(billing) billing.IsAdmin = True AndAlso billing.IsEnabled = True)
         _customerViewInstance.AdminBillingData = Models.AdminBilling
 
         DataContext = _customerViewInstance

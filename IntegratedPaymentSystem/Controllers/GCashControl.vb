@@ -10,83 +10,73 @@ Imports System
 Module GCashControl
 
     Private Property passwordBytes As Byte()
+    Private Property _password As String
 
-    Public Function ExtractReferenceAndDebit(filePath As String) As List(Of Tuple(Of String, String))
-        Dim refAndDebit As New List(Of Tuple(Of String, String))()
+     Public Function ReadPdfTextWithPassword(filePath As String, accountNumber As String) As String
+        Dim pdfText As New StringBuilder()
+
+        Dim billings As BillingsModel = Models.Billings.FirstOrDefault(function(data) data.Number = accountNumber)
+        _password = billings.Name.ToLower().Split(" "c).Last() + billings.Number.Substring(billings.Number.Length - 4)
+        passwordBytes = Encoding.UTF8.GetBytes(_password)
 
         Try
-            Dim text As New StringBuilder()
-
             Using pdfReader As New PdfReader(filePath, New ReaderProperties().SetPassword(passwordBytes))
                 Using pdfDoc As New PdfDocument(pdfReader)
                     For pageNum As Integer = 1 To pdfDoc.GetNumberOfPages()
-                        Dim strategy As ITextExtractionStrategy = New LocationTextExtractionStrategy()
+                        Dim strategy As ITextExtractionStrategy = New SimpleTextExtractionStrategy()
                         Dim currentText As String = PdfTextExtractor.GetTextFromPage(pdfDoc.GetPage(pageNum), strategy)
-                        text.Append(currentText)
+                        pdfText.Append(currentText)
                     Next
                 End Using
             End Using
+         Catch ex As BadPasswordException
 
-            Dim extractedText As String = text.ToString()
+            Return Nothing
 
-            ' Define a regex pattern to match the table structure
-            Dim pattern As String = "Date and Time\s+Description\s+Reference No\s+Debit\s+Credit\s+Balance(.*?)Total Credit"
-            Dim tableRegex As New Regex(pattern, RegexOptions.Singleline)
-            Dim match As Match = tableRegex.Match(extractedText)
-
-            If match.Success Then
-                Dim tableText As String = match.Groups(1).Value.Trim()
-
-                ' Split the table text into rows
-                Dim rows() As String = tableText.Split(Environment.NewLine.ToCharArray(), StringSplitOptions.RemoveEmptyEntries)
-
-                ' Find the header index to identify columns
-                Dim headerIndex As Integer = -1
-                For i As Integer = 0 To rows.Length - 1
-                    If rows(i).Contains("Reference No.") Then
-                        headerIndex = i
-                        Exit For
-                    End If
-                Next
-
-                ' Start processing the rows after the header
-                If headerIndex >= 0 Then
-                    For i As Integer = headerIndex + 1 To rows.Length - 1
-                        Dim columns() As String = rows(i).Split({" "c}, StringSplitOptions.RemoveEmptyEntries)
-                        If columns.Length >= 4 Then ' Assuming Reference No. and Debit are at least 4 columns apart
-                            Dim referenceNo As String = columns(2).Trim()
-                            Dim debit As String = columns(3).Trim()
-                            refAndDebit.Add(New Tuple(Of String, String)(referenceNo, debit))
-                        End If
-                    Next
-                Else
-                    Console.WriteLine("Header not found")
-                End If
-            Else
-                Console.WriteLine("Table extraction failed")
-            End If
         Catch ex As Exception
-            Console.WriteLine($"Error: {ex.Message}")
+
+            Message.Show("Failed", $"Error reading PDF: {ex.Message}")
+            Return Nothing
+
         End Try
 
-        Return refAndDebit
+        Return pdfText.ToString()
     End Function
-
-    Public Function IsPasswordCorrect(filePath As String, password As String) As Boolean
+    
+    Public Function ExtractTransactions(filePath As String, accountNumber As String) As List(Of ExternalTransactionsModel)
+        Dim transactions As New List(Of ExternalTransactionsModel)()
+        Dim billings As BillingsModel = Models.Billings.FirstOrDefault(function(data) data.Number = accountNumber)
+        _password = billings.Name.ToLower().Split(" "c).Last() + billings.Number.Substring(billings.Number.Length - 4)
+        passwordBytes = Encoding.UTF8.GetBytes(_password)
+        
         Try
-            passwordBytes = Encoding.UTF8.GetBytes(password)
+            Dim extractedText As String = ReadPdfTextWithPassword(filePath, accountNumber)
 
-            Using pdfReader As New PdfReader(filePath, New ReaderProperties().SetPassword(passwordBytes))
-                Return True
-            End Using
+            Dim pattern As String = "(\d{4}-\d{2}-\d{2} \d{2}:\d{2} [AP]M)\s+(Transfer from \d+ to " & accountNumber & ")\s+(\d+)\s+([\d.]+)"
 
-        Catch ex As BadPasswordException
-            Return False
+            Dim matches As MatchCollection = Regex.Matches(extractedText, pattern, RegexOptions.Multiline)
 
+            For Each match As Match In matches
+                
+                Dim dateTime As String = match.Groups(1).Value.Trim()
+                Dim description As String = match.Groups(2).Value.Trim()
+                Dim referenceNo As String = match.Groups(3).Value.Trim()
+                Dim debit As String = match.Groups(4).Value.Trim()
+
+                Dim externalTransaction As New ExternalTransactionsModel() With {
+                        .TransactionDate = dateTime,
+                        .Description = description,
+                        .ReferenceNumber = referenceNo,
+                        .Amount = debit
+                        }
+
+                transactions.Add(externalTransaction)
+            Next
         Catch ex As Exception
-            MessageBox.Show($"Error: {ex.Message}", "Failed")
-            Return False
+            MsgBox($"Error extracting transactions: {ex.Message}")
         End Try
+
+        Return transactions
     End Function
 
 End Module

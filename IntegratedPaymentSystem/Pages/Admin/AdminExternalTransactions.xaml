@@ -180,10 +180,24 @@
                     <DataGrid
                         x:Name="TransactionData"
                         MaxHeight="400"
+                        AutoGenerateColumns="False"
                         CanUserAddRows="False"
                         CanUserResizeRows="False"
                         CanUserSortColumns="False"
-                        Style="{StaticResource DesignTable}" />
+                        Style="{StaticResource DesignTable}">
+
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Binding="{Binding TransactionDate, StringFormat=MM/dd/yyyy}" Header="Date" />
+                            <DataGridTextColumn
+                                Width="*"
+                                Binding="{Binding Description}"
+                                Header="Description" />
+                            <DataGridTextColumn Binding="{Binding ReferenceNumber}" Header="ReferenceNumber" />
+                            <DataGridTextColumn Binding="{Binding Amount}" Header="Amount" />
+
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Border>
             </Grid>
 

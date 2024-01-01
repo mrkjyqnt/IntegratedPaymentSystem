@@ -84,11 +84,24 @@ Public Class UserBillingModel
         End Set
     End Property
 
+    Private _isEnabled As Boolean
+    Public Property IsEnabled() As Boolean
+        Get
+            Return _isEnabled
+        End Get
+        Set(value As Boolean)
+            If _isEnabled <> value Then
+                _isEnabled = value
+                RaisePropertyChanged("IsEnabled")
+            End If
+        End Set
+    End Property
+
     Private Sub RaisePropertyChanged(propertyName As String)
         RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
     End Sub
 
-    Public Sub New(ID As Long, AccountID As Long, Name As String, Number As String, Type As String, IsAdmin As Boolean)
+    Public Sub New(ID As Long, AccountID As Long, Name As String, Number As String, Type As String, IsAdmin As Boolean, IsEnabled As Boolean)
         With Me
             .ID = ID
             .AccountID = AccountID
@@ -96,20 +109,22 @@ Public Class UserBillingModel
             .Number = Number
             .Type = Type
             .IsAdmin = IsAdmin
+            .IsEnabled = IsEnabled
         End With
     End Sub
 
-    Public Shared Function GetAllByID(Name As Integer) As UserBillingModel
+    Public Shared Function GetAllByID(ID As Integer) As UserBillingModel
         Dim queryResult = (
                 From b In Models.Billings
-                Where b.Name = Name
+                Where b.ID = ID
                 Select New With {
                 b.ID,
                 b.AccountID,
                 b.Name,
                 b.Number,
                 b.Type,
-                b.IsAdmin
+                b.IsAdmin,
+                b.IsEnabled
                 }).FirstOrDefault()
 
         If queryResult IsNot Nothing Then
@@ -120,7 +135,8 @@ Public Class UserBillingModel
                 queryResult.Name,
                 queryResult.Number,
                 queryResult.Type,
-                queryResult.IsAdmin
+                queryResult.IsAdmin,
+                queryResult.IsEnabled
                 )
 
         Else

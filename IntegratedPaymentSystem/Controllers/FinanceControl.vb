@@ -44,6 +44,11 @@
             .Sum(Function(data) data.Amount)
 
         WeeksPercentage = (ThisWeekSales - Recent) / Recent * 100
+
+        If Double.IsNaN(WeeksPercentage) Then
+            WeeksPercentage = 0
+        End If
+
         WeekResult = ThisWeekSales >= Recent
 
         Return Nothing
@@ -63,7 +68,16 @@
                                       data.TransactionDate < Date.Today.Date.AddDays(-Date.Today.Day).Date) _
                 .Sum(Function(data) data.Amount)
 
+        If Recent < 0 Then
+            Recent = 0
+        End If
+
         MonthsPercentage = (ThisMonthSales - Recent) / Recent * 100
+
+        If Double.IsNaN(MonthsPercentage) Then
+            MonthsPercentage = 0
+        End If
+
         MonthResult = ThisMonthSales >= Recent
 
         Return Nothing
