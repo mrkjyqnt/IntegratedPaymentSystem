@@ -33,8 +33,8 @@ Public Class AdminDashboard
             TextWeekSales.Text = "₱" & ThisWeekSales.ToString("#,##0")
             TextMonthSales.Text = "₱" & ThisMonthSales.ToString("#,##0")
 
-            TextWeekSalesPercent.Text = WeeksPercentage.ToString("") & "%"
-            TextMonthSalesPercent.Text = MonthsPercentage.ToString() & "%"
+            TextWeekSalesPercent.Text = WeeksPercentage.ToString("0.00") & "%"
+            TextMonthSalesPercent.Text = MonthsPercentage.ToString("0.00") & "%"
 
             If WeekResult Then
                 TextWeekSalesPercent.Foreground = TryCast(Application.Current.Resources("PositiveBrush"), Brush)
@@ -58,7 +58,7 @@ Public Class AdminDashboard
 
         If clickedButton Is ButtonFinancial Then
 
-            _adminView.NavigationChange("Transactions")
+            _adminView.NavigationChange("Financial")
             ChangeView(mainView, New AdminFinancial)
 
         ElseIf clickedButton Is ButtonPayments Then

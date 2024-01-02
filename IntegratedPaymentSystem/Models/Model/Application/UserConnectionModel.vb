@@ -88,6 +88,9 @@ Public Class UserConnectionModel
         RaiseEvent PropertyChanged(Me, New PropertyChangedEventArgs(propertyName))
     End Sub
 
+    Public Sub New
+    End Sub
+
     Public Sub New(ID As Integer, AccountID As Integer, Status As String, PlanID As Integer, PlanName As String, PlanAmount As String)
         With Me
             .ID = ID

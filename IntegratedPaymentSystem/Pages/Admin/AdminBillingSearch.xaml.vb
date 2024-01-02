@@ -1,6 +1,6 @@
 ﻿Imports System.ComponentModel
 
-Public Class AdminSearch
+Public Class AdminBillingSearch
     Inherits UserControl
 
     Private ReadOnly _mainWindow As MainWindow = TryCast(Window.GetWindow(Me), MainWindow)
@@ -62,24 +62,39 @@ Public Class AdminSearch
                     direction = ListSortDirection.Ascending
             End Select
 
-            view.SortDescriptions.Clear()
+            If view IsNot Nothing Then
 
-            Dim sortDescription As New SortDescription("ID", direction)
-            view.SortDescriptions.Add(sortDescription)
+                view.SortDescriptions.Clear()
+
+                Dim sortDescription As New SortDescription("ID", direction)
+                view.SortDescriptions.Add(sortDescription)
+
+            End If
+      
         End If
     End Sub
 
     Private Sub Button_Click(sender As Object, e As RoutedEventArgs)
         Dim button As Button = TryCast(sender, Button)
+        Dim rowData As BillingsModel = TryCast(button.DataContext, BillingsModel)
 
-        ' Access the data item (your model) from the button's DataContext (the row's data item)
-        Dim rowData As AccountInformationsModel = TryCast(button.DataContext, AccountInformationsModel)
+        If button Is ButtonAdd Then
 
-        If rowData IsNot Nothing Then
+            Dim billing As New AdminBillingInformation(rowData)
+            billing.ShowDialog()
 
-            ChangeView(mainView, New CollectorCustomerView(rowData.AccountID))
+        Else
+
+            If rowData IsNot Nothing Then
+
+                Dim billing As New AdminBillingInformation(rowData)
+                billing.ShowDialog()
             
+            End If
+
         End If
+
+        ChangeView(mainView, New AdminBillingSearch)
     End Sub
 
 End Class

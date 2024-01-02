@@ -40,7 +40,7 @@ Public Class CustomConfirmationBox
             
             If _confirmation Is Nothing Then
 
-                Me.DialogResult = True
+                DialogResult = True
                 
             Else 
 
@@ -48,14 +48,14 @@ Public Class CustomConfirmationBox
 
                     _confirmedText = TextConfirmation.Text.ToString()
                     MsgBox(_confirmedText)
-                    Me.DialogResult = True
+                    DialogResult = True
 
                 Else 
 
                     If TextConfirmation.Text = _confirmation Then
 
                         Message.Show("Success", $"Action has been executed")
-                        Me.DialogResult = True
+                        DialogResult = True
 
                     Else 
 
@@ -73,7 +73,7 @@ Public Class CustomConfirmationBox
 
         ElseIf sender Is ButtonCancel Then
 
-            Me.DialogResult = False
+            DialogResult = False
 
         End If
 

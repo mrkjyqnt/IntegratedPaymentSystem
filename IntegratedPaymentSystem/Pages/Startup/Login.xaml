@@ -101,7 +101,7 @@
                     Content="Sign In"
                     FontSize="16"
                     Foreground="{StaticResource WhiteBrush}"
-                    Style="{StaticResource DefaultButton}"
+                    Style="{StaticResource NeutralButton}"
                     TabIndex="3" />
                 <TextBlock
                     Grid.Row="2"

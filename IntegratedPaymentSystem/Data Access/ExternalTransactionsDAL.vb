@@ -17,6 +17,26 @@ Public Class ExternalTransactionsDAL
         Return list
     End Function
 
+    Public Function Read(transaction As ExternalTransactionsModel) As ExternalTransactionsModel
+        Dim _transaction As New ExternalTransactionsModel
+
+        Query($"SELECT * FROM ExternalTransactions WHERE ID = {transaction.ID}")
+
+        If DATA IsNot Nothing AndAlso DATA.Tables.Count > 0 AndAlso DATA.Tables(0).Rows.Count > 0 Then
+            Dim row = DATA.Tables(0).Rows(0)
+            _transaction = New ExternalTransactionsModel() With {
+                .ID = Convert.ToInt64(row("ID")),
+                .TransactionDate = row("TransactionDate").ToString(),
+                .Description = row("Description").ToString(),
+                .ReferenceNumber = row("ReferenceNumber").ToString(),
+                .Amount = Convert.ToDecimal(row("Amount")),
+                .Status = row("Status").ToString()
+                }
+        End If
+
+        Return _transaction
+    End Function
+
     Public Function Create(transaction As ExternalTransactionsModel) As ExternalTransactionsModel
         Dim createdTransaction As ExternalTransactionsModel = Nothing
         Dim query As String = "INSERT INTO ExternalTransactions (TransactionDate, Description, ReferenceNumber, Amount, Status) 

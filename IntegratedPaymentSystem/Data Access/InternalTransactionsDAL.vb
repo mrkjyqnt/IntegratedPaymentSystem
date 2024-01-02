@@ -17,6 +17,30 @@ Public Class InternalTransactionsDAL
         Return list
     End Function
 
+    Public Function Read(transaction As InternalTransactionsModel) As InternalTransactionsModel
+        Dim _transaction As New InternalTransactionsModel
+
+        Query($"SELECT * FROM InternalTransactions WHERE ID = {transaction.ID}")
+
+        If DATA IsNot Nothing AndAlso DATA.Tables.Count > 0 AndAlso DATA.Tables(0).Rows.Count > 0 Then
+            Dim row = DATA.Tables(0).Rows(0)
+            _transaction = New InternalTransactionsModel() With {
+                .ID = Convert.ToInt64(row("ID")),
+                .Status = row("Status").ToString(),
+                .Type = row("Type").ToString(),
+                .TransactionDate = Convert.ToDateTime(row("Date")),
+                .Description = row("Description").ToString(),
+                .Others = row("Others").ToString(),
+                .Amount = Convert.ToDecimal(row("Amount")),
+                .CollectorID = Convert.ToInt64(row("CollectorID")),
+                .CustomerID = Convert.ToInt64(row("CustomerID")),
+                .PlanID = Convert.ToInt64(row("PlanID"))
+                }
+        End If
+
+    Return _transaction
+    End Function
+
     Public Function Create(transaction As InternalTransactionsModel) As InternalTransactionsModel
         Dim createdTransaction As InternalTransactionsModel = Nothing
         Dim query As String = "INSERT INTO InternalTransactions (Status, Type, Date, Description, Others, Amount, CollectorID, CustomerID, PlanID) 

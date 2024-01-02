@@ -120,6 +120,12 @@
     <Compile Update="Pages\Admin\Dialog\AdminExternalTransationsImport.xaml.vb">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\Admin\Dialog\AdminBillingInformation.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\Admin\Dialog\AdminInformation.xaml.vb">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\Collector\Dialog\CollectorPrint.xaml.vb">
       <SubType>Code</SubType>
     </Compile>

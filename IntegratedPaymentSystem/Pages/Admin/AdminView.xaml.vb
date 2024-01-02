@@ -48,6 +48,7 @@ Public Class AdminView
 
     Private _users As List(Of AccountsModel)
     Private _usersData As List(Of UserInformationModel)
+    Private _usersBillingsData As List(Of BillingsModel)
     Private _usersConnectionData As List(Of UserConnectionModel)
     Private _usersTransactionsData As List(Of UserTransactionsModel)
     Private _usersActivitiesData As List(Of UserActivitiesModel)
@@ -72,6 +73,18 @@ Public Class AdminView
             If _usersData IsNot value Then
                 _usersData = value
                 OnPropertyChanged("UsersData")
+            End If
+        End Set
+    End Property
+
+    Public Property UsersBillingsData As List(Of BillingsModel)
+        Get
+            Return _usersBillingsData
+        End Get
+        Set(value As List(Of BillingsModel))
+            If _usersBillingsData IsNot value Then
+                _usersBillingsData = value
+                OnPropertyChanged("UsersBillingsData")
             End If
         End Set
     End Property
@@ -310,6 +323,7 @@ Public Class AdminView
 
         Users = Models.Users
         UsersData = Models.UsersInformation
+        UsersBillingsData = Models.Billings
         UsersTransactionsData = Models.UsersTransactions
         UsersConnectionData = Models.UsersConnection
         UsersActivitiesData = Models.UserActivities
@@ -349,13 +363,13 @@ Public Class AdminView
 
         ElseIf sender Is Financial Then
 
-            NavigationChange("Transactions")
-            'ChangeView(mainView, New AdminFinancial)
+            NavigationChange("Financial")
+            ChangeView(mainView, New AdminFinancial)
 
         ElseIf sender Is UserManagement Then
             
             NavigationChange("UserManagement")
-            'ChangeView(mainView, New AdminUserManagement)
+            ChangeView(mainView, New AdminAccountSearch)
 
         ElseIf sender Is DataRecovery Then
             

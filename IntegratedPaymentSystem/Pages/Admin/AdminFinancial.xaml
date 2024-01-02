@@ -271,6 +271,7 @@
                                     Foreground="{StaticResource WhiteBrush}"
                                     Style="{StaticResource MediumText}"><Run Language="en-ph" Text="This Week" /></TextBlock>
                                 <TextBlock
+                                    x:Name="TextWeekSales"
                                     Grid.Row="2"
                                     Foreground="{StaticResource WhiteBrush}"
                                     Style="{StaticResource LargeNumber}"><Run Language="en-ph" Text="000000" /></TextBlock>
@@ -281,6 +282,7 @@
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <TextBlock
+                                        x:Name="TextWeekSalesPercent"
                                         Grid.Column="0"
                                         Foreground="{StaticResource PositiveBrush}"
                                         Style="{StaticResource RegularText}"><Run Language="en-ph" Text="00% higher" /></TextBlock>
@@ -311,6 +313,7 @@
                                     Foreground="{StaticResource WhiteBrush}"
                                     Style="{StaticResource MediumText}"><Run Language="en-ph" Text="This Month" /></TextBlock>
                                 <TextBlock
+                                    x:Name="TextMonthSales"
                                     Grid.Row="2"
                                     Foreground="{StaticResource WhiteBrush}"
                                     Style="{StaticResource LargeNumber}"><Run Language="en-ph" Text="000000" /></TextBlock>
@@ -320,6 +323,7 @@
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <TextBlock
+                                        x:Name="TextMonthSalesPercent"
                                         Grid.Column="0"
                                         Foreground="{StaticResource PositiveBrush}"
                                         Style="{StaticResource RegularText}"><Run Language="en-ph" Text="00% higher" /></TextBlock>
@@ -387,7 +391,7 @@
                         CanUserAddRows="False"
                         CanUserResizeRows="False"
                         CanUserSortColumns="False"
-                        ItemsSource="{Binding TransactionsData, UpdateSourceTrigger=PropertyChanged}"
+                        ItemsSource="{Binding UsersTransactionsData, UpdateSourceTrigger=PropertyChanged}"
                         Style="{StaticResource DesignTable}">
 
 
@@ -403,7 +407,7 @@
                                 <DataGridTextColumn.CellStyle>
                                     <Style BasedOn="{StaticResource TableCell}" TargetType="DataGridCell">
                                         <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Status}" Value="Completed">
+                                            <DataTrigger Binding="{Binding Status}" Value="Confirmed">
                                                 <Setter Property="Foreground" Value="{StaticResource PositiveBrush}" />
                                             </DataTrigger>
                                             <DataTrigger Binding="{Binding Status}" Value="Pending">

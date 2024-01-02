@@ -23,9 +23,9 @@
 
         For Each transaction As ExternalTransactionsModel In externalTransaction
 
-            Dim exist As ExternalTransactionsModel = Models.ExternalTransactions.FirstOrDefault(Function(data) data.ReferenceNumber = transaction.ReferenceNumber)
+            _ExternalTransactionModel = ExternalTransactionDal.Read(transaction)
 
-            If exist Is Nothing Then
+            If _ExternalTransactionModel Is Nothing Then
 
                 transaction.Status = "Unclaimed"
                 _ExternalTransactionModel = ExternalTransactionDal.Create(transaction)
@@ -45,16 +45,23 @@
 
     Public Function UpdateExternalTransaction(externalTransaction As ExternalTransactionsModel)
 
-        _ExternalTransactionModel = ExternalTransactionDal.Update(externalTransaction)
-        _index = Models.ExternalTransactions.FindIndex(Function(data) data.ID = _ExternalTransactionModel.ID)
+        _ExternalTransactionModel = ExternalTransactionDal.Read(externalTransaction)
 
-        If _index >= 0 Then
-            Models.ExternalTransactions(_index) = _ExternalTransactionModel
-            confirmedCount +=1
+        If _ExternalTransactionModel IsNot Nothing
 
-        Else
+            _ExternalTransactionModel = ExternalTransactionDal.Update(externalTransaction)
+            _index = Models.ExternalTransactions.FindIndex(Function(data) data.ID = _ExternalTransactionModel.ID)
 
-            nonconfirmedCount +=1
+            If _index >= 0 Then
+
+                Models.ExternalTransactions(_index) = _ExternalTransactionModel
+                confirmedCount +=1
+
+            Else
+
+                nonconfirmedCount +=1
+
+            End If
 
         End If
 
@@ -63,20 +70,26 @@
 
     Public Function UpdateInternalTransaction(internalTransaction As InternalTransactionsModel)
 
-        _InternalTransactionModel = InternalTransactionDal.Update(internalTransaction)
-        _UserTransactionsModel = Models.UsersTransactions.FirstOrDefault(Function(data) data.ID = _InternalTransactionModel.ID)
+        _InternalTransactionModel = InternalTransactionDal.Read(internalTransaction)
 
-            With _UserTransactionsModel
-                .Status = _InternalTransactionModel.Status
-                .Collector = Models.UsersInformation.FirstOrDefault(Function(data) data.AccountID = _InternalTransactionModel.CollectorID).FullName.ToString
-            End With
+        If _InternalTransactionModel IsNot Nothing
 
-        _index = Models.InternalTransactions.FindIndex(Function(data) data.ID = _InternalTransactionModel.ID)
-        _indexApp = Models.UsersTransactions.FindIndex(Function(data) data.ID = _InternalTransactionModel.ID)
+            _InternalTransactionModel = InternalTransactionDal.Update(internalTransaction)
+            _UserTransactionsModel = Models.UsersTransactions.FirstOrDefault(Function(data) data.ID = _InternalTransactionModel.ID)
 
-        If _index >= 0 Then
-            Models.InternalTransactions(_index) = _InternalTransactionModel
-            Models.UsersTransactions(_indexApp) = _UserTransactionsModel
+                With _UserTransactionsModel
+                    .Status = _InternalTransactionModel.Status
+                    .Collector = Models.UsersInformation.FirstOrDefault(Function(data) data.AccountID = _InternalTransactionModel.CollectorID).FullName.ToString
+                End With
+
+            _index = Models.InternalTransactions.FindIndex(Function(data) data.ID = _InternalTransactionModel.ID)
+            _indexApp = Models.UsersTransactions.FindIndex(Function(data) data.ID = _InternalTransactionModel.ID)
+
+            If _index >= 0 Then
+                Models.InternalTransactions(_index) = _InternalTransactionModel
+                Models.UsersTransactions(_indexApp) = _UserTransactionsModel
+            End If
+
         End If
 
         Return Nothing

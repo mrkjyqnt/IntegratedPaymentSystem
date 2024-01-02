@@ -25,7 +25,7 @@
                     VerticalAlignment="Center"
                     Foreground="{StaticResource WhiteBrush}"
                     Style="{StaticResource TitleText}"
-                    Text="Transactions" />
+                    Text="Payments" />
             </Grid>
 
         </Grid>
@@ -149,7 +149,7 @@
                                     Grid.Row="2"
                                     Foreground="{StaticResource WhiteBrush}"
                                     Style="{StaticResource MediumText}"
-                                    Text="Transaction History" />
+                                    Text="Payments History" />
                             </Border>
                         </Grid>
 

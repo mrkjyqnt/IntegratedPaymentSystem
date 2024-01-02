@@ -316,6 +316,7 @@
 
                     <DataGrid
                         x:Name="TransactionData"
+                        MaxHeight="400"
                         AutoGenerateColumns="False"
                         CanUserAddRows="False"
                         CanUserResizeRows="False"
