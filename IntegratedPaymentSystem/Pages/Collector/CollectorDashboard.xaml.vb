@@ -45,7 +45,7 @@
 
         ElseIf clickedButton Is ButtonSupport Then
 
-            Message.Show("Failed", "Currently not available")
+            NavigateWebURL("https://www.facebook.com/profile.php")
 
         End If
 

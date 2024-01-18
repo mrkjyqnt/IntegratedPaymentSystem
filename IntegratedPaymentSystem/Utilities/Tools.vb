@@ -29,6 +29,18 @@ Module Tools
         Return Activator.CreateInstance(type)
     End Function
 
+    Public Sub NavigateWebURL(ByVal URL As String)
+        Try
+            Dim psi As New ProcessStartInfo
+            psi.UseShellExecute = True
+            psi.FileName = URL
+            Process.Start(psi)
+        Catch ex As Exception
+            ' Handle any exceptions, such as the URL being malformed or the browser not being available.
+            MessageBox.Show("Error opening URL: " & ex.Message)
+        End Try
+    End Sub
+
     Public Function GetPasswordFromPasswordBox(passwordBox As PasswordBox) As String
         Dim password As String = Nothing
 

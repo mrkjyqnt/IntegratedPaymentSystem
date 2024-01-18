@@ -322,7 +322,7 @@ Public Class AdminView
         UserData = Models.UserInformation
 
         Users = Models.Users
-        UsersData = Models.UsersInformation
+        UsersData = Models.UsersInformation.Where(function(data) data.ID > 0).ToList
         UsersBillingsData = Models.Billings
         UsersTransactionsData = Models.UsersTransactions
         UsersConnectionData = Models.UsersConnection

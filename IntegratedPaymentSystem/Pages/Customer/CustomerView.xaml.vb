@@ -153,8 +153,7 @@ Public Class CustomerView
             
         ElseIf clickedButton Is ButtonSupport Then
 
-            MsgBox("Not available")
-            NavigationChange("Support")
+            NavigateWebURL("https://www.facebook.com/profile.php")
 
         ElseIf clickedButton Is ButtonAccount Then
 

@@ -68,7 +68,8 @@ Public Class AdminDashboard
 
         ElseIf clickedButton Is ButtonUserManagement Then
 
-            Message.Show("Failed", "Currently not available")
+            _adminView.NavigationChange("UserManagement")
+            ChangeView(mainView, New AdminAccountSearch)
 
         ElseIf clickedButton Is ButtonDataBackup Then
 

@@ -74,16 +74,30 @@
                                     Source="{StaticResource TransactionLined}"
                                     Stretch="Fill" />
                             </Border>
-                            <Border
+                            <Grid
                                 Grid.Column="2"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="2.50" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <TextBlock
+                                    Grid.Row="0"
+                                    Foreground="{StaticResource WhiteBrush}"
+                                    Style="{StaticResource MediumText}"
+                                    Text="Print Payments" />
+
                                 <TextBlock
                                     Grid.Row="2"
                                     Foreground="{StaticResource WhiteBrush}"
-                                    Style="{StaticResource MediumText}"
-                                    Text="Print Transactions" />
-                            </Border>
+                                    Style="{StaticResource RegularText}"
+                                    Text="Generate printed transactions" />
+
+                            </Grid>
                         </Grid>
 
                         <Border

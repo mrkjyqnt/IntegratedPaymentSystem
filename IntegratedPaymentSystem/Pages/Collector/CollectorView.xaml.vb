@@ -157,7 +157,7 @@ Public Class CollectorView
 
         ElseIf sender Is Support Then
             
-            '
+            NavigateWebURL("https://www.facebook.com/profile.php")
 
         ElseIf sender Is Account Then
 

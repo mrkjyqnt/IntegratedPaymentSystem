@@ -35,7 +35,6 @@ Public Class AdminAccountsView
 
             If userAccountModel.Role = "customer" Then
 
-                MsgBox("Working")
                 PreviewAccountSection.DataContext = userInformationModel
                 AccountSection.DataContext = userInformationModel
                 ConnectionSection.DataContext = userConnectionModel
