@@ -6,3 +6,6 @@ This application ensure the smoothness of the transaction without the interactio
 This project uses the following:
 - VB .Net
 - WPF
+
+
+This Project is Unfinish as of the moment
